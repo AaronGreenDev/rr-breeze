@@ -36,71 +36,30 @@
                 </div>
             @endif
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path url=""/>
-                        </g>
-                    </svg>
-                </div>
+            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 ">
+                
+                <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10 sm:rounded-lg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                  </div>
+                
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
+                        <div class="p-6 items-center">
                             <div class="flex items-center">
-                                
-                            </div>
-
-                            <div class="ml-12">
-                                
+                            <a href="{{ route('login') }}" class="text-md text-gray-700 underline">Log in</a>
                             </div>
                         </div>
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                        <div class="p-6 items-center border-t border-gray-200 dark:border-gray-700">
                             <div class="flex items-center">
-                                
-                            </div>
-
-                            <div class="ml-12">
-                                
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                
-                            </div>
-
-                            <div class="ml-12">
-                                
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                
-                            </div>
-
-                            <div class="ml-12">
-                                
+                            <a href="{{ route('register') }}" class="ml-4 text-md text-gray-700 underline">Register</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            
-                            
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
+              
             </div>
         </div>
     </body>
