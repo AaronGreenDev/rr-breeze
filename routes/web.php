@@ -21,4 +21,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/standardPack', function () {
+    return view('standardPack');
+})->middleware(['auth'])->name('standardPack');
+
+Route::get('/controlledPack', function () {
+    return view('controlledPack');
+})->middleware(['auth'])->name('controlledPack');
+
+Route::get('/restock', function () {
+    return view('restock');
+})->middleware(['auth'])->name('restock');
+
 require __DIR__.'/auth.php';
