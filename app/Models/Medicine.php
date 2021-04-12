@@ -13,7 +13,8 @@ class Medicine extends Model
         'medName',
         'batchNo',
         'expiryDate',
-        'assignedTo',
+        'location',
+        'status',
 
     ];
 }

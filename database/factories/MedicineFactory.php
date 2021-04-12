@@ -23,7 +23,8 @@ class MedicineFactory extends Factory
             'medName' => $this->faker->medName,
             'batchNo' => $this->faker->unique()->batchNo,
             'expiryDate' => $this->faker->expiryDate,
-            'assignedTo' => $this->faker->assignedTo,
+            'location' => $this->faker->location,
+            'status' => $this->faker->status,
         ];
     }
 
