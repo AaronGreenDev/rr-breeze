@@ -7,11 +7,14 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    
-                </div>
-            </div>
+            <!--<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg content-end">-->
+            <!--    <div class="p-6 bg-white border-b border-gray-200 "> -->
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+  Filter
+</button>
+ <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
+                <!--</div>-->
+            <!--</div>-->
        </br>
 
     <!-- This example requires Tailwind CSS v2.0+ -->
@@ -60,7 +63,45 @@
                     </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">Ambulance Technician</div>
+                <div class="text-sm text-gray-900">EMT</div>
+                <div class="text-sm text-gray-500">Aaron Green</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">2</div>
+                <div class="text-sm text-gray-500">Due to expire: 5</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Ambulance 412
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-green-800">
+                  Assigned
+                </span>
+              </td>
+              
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+              </td>
+            </tr>
+
+            <!-- More items... -->
+          </tbody>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="text-sm font-medium text-gray-900">
+                      1011
+                    </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-500">
+                      Pack 2
+                    </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">EMT</div>
                 <div class="text-sm text-gray-500">Aaron Green</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
@@ -68,7 +109,45 @@
                 <div class="text-sm text-gray-500">Due to expire: 3</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                Ambulance 412
+                Ambulance 103
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-green-800">
+                  Assigned
+                </span>
+              </td>
+              
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+              </td>
+            </tr>
+
+            <!-- More items... -->
+          </tbody>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="text-sm font-medium text-gray-900">
+                      1023
+                    </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-500">
+                      Pack 3
+                    </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">EMT</div>
+                <div class="text-sm text-gray-500">Aaron Green</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">0</div>
+                <div class="text-sm text-gray-500">Due to expire: 1</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Ambulance 111
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-green-800">
