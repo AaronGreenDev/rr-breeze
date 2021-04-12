@@ -18,7 +18,8 @@ class CreateMedicinesTable extends Migration
             $table->string('medName');
             $table->int('batchNo');
             $table->datetime('expiryDate');
-            $table->string('assignedTo');
+            $table->string('location');
+            $table->string('status');
             $table->timestamps();
         });
     }
