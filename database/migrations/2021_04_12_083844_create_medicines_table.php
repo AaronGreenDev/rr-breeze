@@ -16,7 +16,7 @@ class CreateMedicinesTable extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->string('medName');
-            $table->int('batchNo');
+            $table->integer('batchNo');
             $table->datetime('expiryDate');
             $table->string('location');
             $table->string('status');
