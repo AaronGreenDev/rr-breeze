@@ -17,4 +17,19 @@ class Medicine extends Model
         'status',
 
     ];
+
+    public function medpack()
+    {
+        return $this->belongsTo(MedPack::class);
+    }
+
+    public function getMedPack()
+    {
+        $medicine = Medicine::find(1);
+
+        return $this->medpack->pack_id;
+
+    }
+
+   
 }

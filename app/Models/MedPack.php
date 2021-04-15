@@ -14,6 +14,13 @@ class MedPack extends Model
         return $this->hasMany(Medicine::class);
     }
 
+    public function getMeds(){
+
+    return $medicine = MedPack::find(10)->meds()
+                    ->where('location', 'pack 1');
+
+    }          
+
     protected $fillable =[
         'pack_id',
         'status',
