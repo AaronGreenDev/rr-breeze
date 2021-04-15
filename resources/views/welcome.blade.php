@@ -21,7 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <div class="relative flex items-top justify-center min-h-screen bg-blue-400 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -35,12 +35,16 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 ">
-                
-                <div class="flex-shrink-0 h-10 w-10">
-                    <img class="h-10 w-10 sm:rounded-lg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                  </div>
+           
+            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                <div class="overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 border-b border-gray-200 bg-blue-700">
+                        <div class="flex-shrink-0 h-10 w-10">
+                            <img class="h-10 w-10 sm:rounded-lg" src="https://static.wixstatic.com/media/104297_a13a7a0643cf47c1a358f0c25783ef1c~mv2.png/v1/fit/w_2500,h_1330,al_c/104297_a13a7a0643cf47c1a358f0c25783ef1c~mv2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+          
                 
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
