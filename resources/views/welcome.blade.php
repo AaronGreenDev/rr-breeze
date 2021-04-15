@@ -47,17 +47,25 @@
           
                 
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                <div class="mt-8 bg-white dark:bg-gray-200 shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6 items-center">
-                            <div class="flex items-center">
-                            <a href="{{ route('login') }}" class="text-md text-gray-700 underline">Log in</a>
+                        <div class="p-6">
+                            <div class="flex">
+                            <!--<a href="{{ route('login') }}" class="text-md text-gray-700 underline">Log in</a>-->
+                            <button type="button"   class="items-center text-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium 
+                            text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <a href="{{ route('login') }}">Login</a>
+                            </button>
                             </div>
                         </div>
 
-                        <div class="p-6 items-center border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                            <a href="{{ route('register') }}" class="ml-4 text-md text-gray-700 underline">Register</a>
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex">
+                            <button type="button" class="items-center text-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium 
+                            text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <a href="{{ route('register') }}" >Register</a>
+                            </button>
+                            <!--<a href="{{ route('register') }}" class="ml-4 text-md text-gray-700 underline">Register</a>-->
                             </div>
                         </div>
                     </div>
