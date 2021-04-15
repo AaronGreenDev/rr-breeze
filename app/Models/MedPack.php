@@ -5,16 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Medicine extends Model
+class MedPack extends Model
 {
     use HasFactory;
 
+    public function meds()
+    {
+        return $this->hasMany(Medicine::class);
+    }
+
     protected $fillable =[
-        'med_name',
-        'batch_no',
-        'expiry_date',
-        'location',
+        'pack_id',
         'status',
+        'assigned_to',
+        'pack_location',
 
     ];
 }
