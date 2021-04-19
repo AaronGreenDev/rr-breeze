@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::get('/restock', function () {
 Route::get('/stockList', function () {
     return view('stockList');
 })->middleware(['auth'])->name('stockList');
+
+Route::resource('meds', StockController::class);
+
 
 
 require __DIR__.'/auth.php';

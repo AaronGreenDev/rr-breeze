@@ -19,7 +19,7 @@ class CreateMedicinesTable extends Migration
             $table->integer('batch_no');
             $table->datetime('expiry_date');
             $table->string('location');
-            $table->string('status');
+            $table->string('status')->default('In Date');
             $table->timestamps();
         });
     }
