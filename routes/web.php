@@ -33,4 +33,9 @@ Route::get('/restock', function () {
     return view('restock');
 })->middleware(['auth'])->name('restock');
 
+Route::get('/stockList', function () {
+    return view('stockList');
+})->middleware(['auth'])->name('stockList');
+
+
 require __DIR__.'/auth.php';
