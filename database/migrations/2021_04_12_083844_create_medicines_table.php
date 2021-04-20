@@ -17,7 +17,7 @@ class CreateMedicinesTable extends Migration
             $table->id('medicine_id');
             $table->string('med_name');
             $table->integer('batch_no');
-            $table->datetime('expiry_date');
+            $table->date('expiry_date');
             $table->string('location');
             $table->string('status')->default('In Date');
             $table->timestamps();
