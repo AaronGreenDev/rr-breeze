@@ -91,6 +91,34 @@
             </x-responsive-nav-link>
         </div>
 
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('standardPack')" :active="request()->routeIs('standardPack')">
+            {{ __('Standard Pack') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('controlledPack')" :active="request()->routeIs('controlledPack')">
+            {{ __('Controlled Pack') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('restock')" :active="request()->routeIs('restock')">
+            {{ __('Restock') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('meds.index')" :active="request()->routeIs('meds.index')">
+            {{ __('Stock List') }}
+            </x-responsive-nav-link>
+        </div>
+
+        
+
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
