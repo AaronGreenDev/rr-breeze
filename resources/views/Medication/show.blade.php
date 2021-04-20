@@ -73,15 +73,9 @@
 
                                     <td>
                                         <form action="{{ route('meds.destroy', $med->medicine_id) }}" method="POST">
-                                           
-                                                <button title="view" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 p-2 rounded">
-                                                    <a href="{{ route('meds.show', $med->medicine_id) }}" title="show">
-                                                        View
-                                                    </a>
-                                                </button>
+                                           <div>
                                             
-                                            
-                                            <button title="edit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 p-2 rounded">
+                                            <button title="edit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-3 p-2 m-1 rounded">
                                                 <a href="{{ route('meds.edit', $med->medicine_id) }}">
                                                     Edit
                                                 </a>
@@ -92,9 +86,9 @@
 
                                             
                                                 <button type="submit" title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                    X
+                                                    Delete
                                                 </button>
-                                            
+                                            </div>
     
                                         </form>
                                     </td>
