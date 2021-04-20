@@ -3,19 +3,24 @@
 @section('content')
     
 
-    @if ($message = Session::get('success'))
-        <div role="alert">
-            <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2">
-                Success!
-            </div>
-            <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
-                <p>{{ $message }}</p>
-            </div>
-        </div>
-    @endif
+   
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+
+            @if ($message = Session::get('success'))
+                <div role="alert">
+                    <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2">
+                        Success!
+                    </div>
+                    <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                        <p>{{ $message }}</p>
+                    </div>
+                </div>
+            @endif
+
+
             <div class="flex justify-end">
               <div class="p-1">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
