@@ -111,7 +111,7 @@
                                                     View
                                                 </a>
                                             </button>
-                                            <button title="edit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                            <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
                                                 <a href="{{ route('meds.edit', $med->medicine_id) }}">
                                                     Edit
                                                 </a>
