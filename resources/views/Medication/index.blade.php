@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    
+<x-app-layout>
+<x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Stock List') }}
+        </h2>
+    </x-slot>
 
+    
    
 
     <div class="py-12">
@@ -143,3 +149,4 @@
 </div>                     
 {!! $meds->appends(Request::except('page'))->render() !!}
                     @endsection
+                    </x-app-layout>

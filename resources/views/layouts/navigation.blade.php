@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                         <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+                         <img class="h-12 w-15" src="https://static.wixstatic.com/media/104297_a13a7a0643cf47c1a358f0c25783ef1c~mv2.png/v1/fit/w_2500,h_1330,al_c/104297_a13a7a0643cf47c1a358f0c25783ef1c~mv2.png" alt="Workflow">
                     </a>
                 </div>
 

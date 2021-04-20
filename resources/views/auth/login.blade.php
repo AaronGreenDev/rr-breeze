@@ -1,10 +1,17 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="" />
-            </a>
+            <img class="h-20 w-50 sm:rounded-lg" 
+                 src="https://static.wixstatic.com/media/104297_a13a7a0643cf47c1a358f0c25783ef1c~mv2.png/v1/fit/w_2500,h_1330,al_c/104297_a13a7a0643cf47c1a358f0c25783ef1c~mv2.png" 
+                 alt="">
         </x-slot>
+
+        
+                    
+                   
+                    
+                
+          
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -39,6 +46,14 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+
+            <div class="block mt-2">
+            <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                        {{ __('Register') }}
+            </a>
+
+            </div>
+
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
