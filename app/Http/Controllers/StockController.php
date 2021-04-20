@@ -66,13 +66,17 @@ class StockController extends Controller
      * @param  \App\Models\Medicine  $med
      * @return \Illuminate\Http\Response
      */
-    public function show(Medicine $med)
+    public function show($id)
     {
         //return view('meds.show', compact('med'));
 
-          return view('medication.show', [
-            'meds' => Medicine::findOrFail($med)
-       ]);
+          //return view('medication.show', [
+          //  'meds' => Medicine::findOrFail($med)
+         //       ]);
+
+       $med = Medicine::findOrFail($id);
+
+       return view('medication.show', compact('med'));
     }
 
 
