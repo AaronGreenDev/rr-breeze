@@ -12,15 +12,24 @@ class StockController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Medicine $med)
     {
-        $meds = Medicine::latest()->paginate(5);
+       // $meds = $med->latest()->sortable()->paginate(5);
 
-        return view('medication.index', compact('meds'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        //return view('medication.index', compact('meds'))
+          //  ->with('i', (request()->input('page', 1) - 1) * 5)
+
+     try {
+            $meds = $med->select('*')->sortable()->paginate(10);
+    
+            return view('medication.index', ['meds' => $meds]);
+
+        } 
+        catch(\Kyslik\ColumnSortable\Exceptions\ColumnSortableException $e) 
+        {
+            dd($e);
+        }    
     }
-
-
 
 
     /**
