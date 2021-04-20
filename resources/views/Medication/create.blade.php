@@ -13,6 +13,7 @@
         </div>
     @endif
 <div class="py-12">
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 <div class="mt-9 sm:mt-0">
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="md:col-span-2">
@@ -41,7 +42,7 @@
                 <input type="text" name="batch_no" id="batch_no" autocomplete="batch_no" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
-              <div class="col-span-6 sm:col-span-4">
+              <div class="col-span-6 sm:col-span-3">
                 <label for="expiry_date" class="block text-sm font-medium text-gray-700">expiry_date</label>
                 <input type="text" name="expiry_date" id="expiry_date" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
@@ -66,6 +67,7 @@
   </div>
 </div>
 </div>    
+</div>
 @endsection
 
 

@@ -2,7 +2,8 @@
 
 
 @section('content')
-
+<div class="py-12">
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -72,25 +73,28 @@
 
                                     <td>
                                         <form action="{{ route('meds.destroy', $med->medicine_id) }}" method="POST">
-                                            <button title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                <a href="{{ route('meds.show', $med->medicine_id) }}" title="show">
-                                                    View
-                                                </a>
-                                            </button>
-                                            <button title="edit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                           
+                                                <button title="view" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 p-2 rounded">
+                                                    <a href="{{ route('meds.show', $med->medicine_id) }}" title="show">
+                                                        View
+                                                    </a>
+                                                </button>
+                                            
+                                            
+                                            <button title="edit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 p-2 rounded">
                                                 <a href="{{ route('meds.edit', $med->medicine_id) }}">
                                                     Edit
                                                 </a>
-
+                                            
                                             @csrf
                                             @method('DELETE')
 
 
-                                            <div class="p-1">  
+                                            
                                                 <button type="submit" title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
                                                     X
                                                 </button>
-                                            </div>
+                                            
     
                                         </form>
                                     </td>
@@ -102,5 +106,8 @@
             </div>
         </div>
     </div>        
-</div>                     
+</div>
+</div>
+
+
 @endsection
