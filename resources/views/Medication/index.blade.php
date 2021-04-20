@@ -106,7 +106,7 @@
 
                                     <td>
                                        <!-- <form action="{{ route('meds.destroy', $med->medicine_id) }}" method="POST">-->
-                                            <button title="view" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                            <button title="view" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
                                                 <a href="{{ route('meds.show', $med->medicine_id) }}" title="show">
                                                     View
                                                 </a>
