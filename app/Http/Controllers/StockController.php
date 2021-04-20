@@ -68,7 +68,11 @@ class StockController extends Controller
      */
     public function show(Medicine $med)
     {
-        return view('meds.show', compact('med'));
+        //return view('meds.show', compact('med'));
+
+          return view('medication.show', [
+            'meds' => Medicine::findOrFail($med)
+       ]);
     }
 
 
@@ -76,13 +80,17 @@ class StockController extends Controller
 
     /**
      * Display the form for editing the Medication.
-     *
+     * @param  int  $id
      * @param  \App\Models\Medicine  $med
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medicine $med)
+    public function edit($id)
     {
-        return view('meds.edit', compact('med'));
+       // return view('meds.edit', compact('med'));
+
+       $med = Medicine::findOrFail($id);
+
+        return view('medication.edit', compact('med'));
     }
 
 
@@ -101,7 +109,7 @@ class StockController extends Controller
             'batch_no' => 'required',
             'expiry_date' => 'required',
             'location' => 'required',
-            'status' => 'required'
+        
         ]);
         $med->update($request->all());
 
@@ -124,4 +132,14 @@ class StockController extends Controller
         return redirect()->route('meds.index')
             ->with('success', 'Medicine deleted successfully');
     }
+
+    //Sort
+    public function indexSorting()
+    {
+        $meds = Medicine::sortable()->paginate(5);
+        return view('meds.index')->with('meds',$meds);
+    }
+
+
+
 }

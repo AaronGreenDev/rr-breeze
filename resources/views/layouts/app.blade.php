@@ -32,9 +32,9 @@
                 {{ $slot ?? ''}}
 
                 @show
-                <div class="container">
+               
                  @yield('content')
-                </div>
+                
             </main>
         </div>
     </body>

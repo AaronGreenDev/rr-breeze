@@ -14,10 +14,10 @@ class MedPack extends Model
         return $this->hasMany(Medicine::class);
     }
 
-    public function getMeds(){
+    public function getMeds()
+    {
 
-    return $medicine = MedPack::find(10)->meds()
-                    ->where('location', 'pack 1');
+        return $medicine = MedPack::find(10)->meds()->where('location', 'pack 1');
 
     }          
 

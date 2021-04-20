@@ -22,11 +22,7 @@
                 <a href="{{ route('meds.create') }}">Add</a>
                 </button>
               </div>
-              <div class="p-1">  
-                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
-                    Remove
-                </button>
-              </div>
+              
               <div class="p-1">  
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded content-end">
                     Filter
@@ -46,17 +42,17 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     ID
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Name
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                    @sortablelink('med_name', 'Name')
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Batch Num
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                    @sortablelink('batc_no', 'Batch Number')
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Expiry Date
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                    @sortablelink('expiry_date', 'Expiry Date') 
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Location
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    @sortablelink('location', 'Location')
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Edit</span>
@@ -104,25 +100,28 @@
                                 </td>
 
                                     <td>
-                                        <form action="{{ route('meds.destroy', $med->medicine_id) }}" method="POST">
-
-                                            <a href="{{ route('meds.show', $med->medicine_id) }}" title="show">
-                                                <i class="fas fa-eye text-success  fa-lg"></i>
-                                            </a>
-
-                                            <a href="{{ route('meds.edit', $med->medicine_id) }}">
-                                                <i class="fas fa-edit  fa-lg"></i>
-
-                                            </a>
+                                       <!-- <form action="{{ route('meds.destroy', $med->medicine_id) }}" method="POST">-->
+                                            <button title="view" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                <a href="{{ route('meds.show', $med->medicine_id) }}" title="show">
+                                                    View
+                                                </a>
+                                            </button>
+                                            <button title="edit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                <a href="{{ route('meds.edit', $med->medicine_id) }}">
+                                                    Edit
+                                                </a>
 
                                             @csrf
                                             @method('DELETE')
 
-                                            <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                                                <i class="fas fa-trash fa-lg text-danger"></i>
 
-                                            </button>
-                                        </form>
+                                           <!-- <div class="p-1">  
+                                                <button type="submit" title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                    X
+                                                </button>
+                                            </div>-->
+    
+                                     <!--   </form> -->
                                     </td>
                                 </tr>
                             @endforeach
@@ -133,6 +132,6 @@
             </div>
         </div>
     </div>        
-</div>                        {!! $meds->links() !!}
-
+</div>                     
+{!! $meds->appends(Request::except('page'))->render() !!}
                     @endsection

@@ -1,18 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Product</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('meds.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
-            </div>
-        </div>
-    </div>
-
-    @if ($errors->any())
+ 
+   @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -23,41 +13,48 @@
         </div>
     @endif
 
-    <form action="{{ route('meds.update', $med->id) }}" method="POST">
+    <form action="{{ route('meds.update', $med->medicine_id) }}" method="POST">
         @csrf
         @method('PUT')
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="med_name" value="{{ $med->med_name }}" class="form-control" placeholder="Medicine Name">
-                </div>
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="medicine_id" class="block text-sm font-medium text-gray-700">Medication Id</label>
+                <input type="text" name="medicine_id" id="medicine_id" value="{{ $med->medicine_id }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="med_name" class="block text-sm font-medium text-gray-700">Medication Name</label>
+                <input type="text" name="med_name" id="med_name" value="{{ $med->med_name }}"  autocomplete="med_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="batch_no" class="block text-sm font-medium text-gray-700">batch_no</label>
+                <input type="text" name="batch_no" placeholder="Batch Number" value='{{  $med->batch_no  }}' id="batch_no" autocomplete="batch_no" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <label for="expiry_date" class="block text-sm font-medium text-gray-700">expiry_date</label>
+                <input type="text" name="expiry_date" id="expiry_date" placeholder="expiry_date" value='{{  $med->expiry_date  }}' autocomplete="expiry_date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="location" class="block text-sm font-medium text-gray-700">location</label>
+                <select id="location" name="location" placeholder="{{ $med->location }}"
+                        value="{{ $med->location }}" autocomplete="location" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Cannock</option>
+                  <option>Essex</option>
+                </select>
+              </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Batch Number:</strong>
-                    <textarea class="form-control" style="height:50px" name="batch_no"
-                        placeholder="Batch Number">{{ $med->batch_no }}</textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Expiry Date:</strong>
-                    <input type="text" name="expiry_date" class="form-control" placeholder="{{ $med->expiry_date }}"
-                        value="{{ $med->location }}">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Location:</strong>
-                    <input type="text" name="location" class="form-control" placeholder="{{ $med->location }}"
-                        value="{{ $med->location }}">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Save
+            </button>
+          </div>
         </div>
 
     </form>

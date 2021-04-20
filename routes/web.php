@@ -40,6 +40,8 @@ Route::get('/stockList', function () {
 
 Route::resource('meds', StockController::class);
 
+Route::resource('medPack','PackController');
 
+Route::get('meds/index', 'StockController@indexSorting');
 
 require __DIR__.'/auth.php';
