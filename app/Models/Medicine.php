@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
+use eloquentFilter\QueryFilter\ModelFilters\Filterable;
+
 
 class Medicine extends Model
 {
     use HasFactory;
     use Sortable;
+    use Filterable;
 
     protected $fillable =[
         'med_name',
@@ -31,6 +34,14 @@ class Medicine extends Model
             'location',
             'status',
 
+    ];
+
+    private static $whiteListFilter =[
+            'med_name',
+            'batch_no',
+            'expiry_date',
+            'location',
+            'status',
     ];
 
 

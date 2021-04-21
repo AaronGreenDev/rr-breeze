@@ -153,7 +153,18 @@ class StockController extends Controller
         return view('meds.index')->with('meds',$meds);
     }
 
-    
+    public function list()
+    {
+       if (!empty(request()->get('username'))) {
+          
+              $meds = Medicine::ignoreRequest('perpage')->filter()->with('meds')->paginate(request()->get('perpage'),['*'],'page');
+
+          } else {
+              $meds = Medicine::filter(
+                ['location' => ['Cannock']]           
+                )->with('posts')->paginate(10,['*'],'page');
+          }
+    }
 
 
 

@@ -177,7 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
-
+        eloquentFilter\ServiceProvider::class,
         
     ],
 
@@ -231,6 +231,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'EloquentFilter' => eloquentFilter\Facade\EloquentFilter::class,
 
     ],
 

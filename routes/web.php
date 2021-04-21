@@ -38,7 +38,7 @@ Route::get('/stockList', function () {
     return view('stockList');
 })->middleware(['auth'])->name('stockList');
 
-Route::resource('meds', StockController::class);
+Route::resource('meds', StockController::class)->middleware(['auth']);
 
 Route::resource('medPack','PackController');
 
