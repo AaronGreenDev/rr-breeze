@@ -27,7 +27,7 @@
 
             <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
 
-            <ul class="block w-11/12 my-4 mx-auto" x-data="{selected:null}">
+            <ul class="block w-11/12  mx-auto" x-data="{selected:null}">
                 <li class="flex align-center flex-col">
                     <h4 @click="selected !== 0 ? selected = 0 : selected = null"
                     class="cursor-pointer px-5 py-3 bg-indigo-300 text-white text-center inline-block hover:opacity-75 hover:shadow hover:-mb-3 rounded-t"> Filters</h4>
