@@ -38,17 +38,17 @@
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="batch_no" class="block text-sm font-medium text-gray-700">batch_no</label>
+                    <label for="batch_no" class="block text-sm font-medium text-gray-700">Batch Number</label>
                     <input type="text" name="batch_no" id="batch_no" autocomplete="batch_no" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="expiry_date" class="block text-sm font-medium text-gray-700">expiry_date</label>
+                    <label for="expiry_date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
                     <input type="text" name="expiry_date" id="expiry_date" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="location" class="block text-sm font-medium text-gray-700">location</label>
+                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
                     <select id="location" name="location" autocomplete="location" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                       <option>Cannock</option>
                       <option>Essex</option>
