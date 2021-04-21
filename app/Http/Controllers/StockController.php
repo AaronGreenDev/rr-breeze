@@ -153,6 +153,8 @@ class StockController extends Controller
         return view('meds.index')->with('meds',$meds);
     }
 
+    
+
 
 
 }
