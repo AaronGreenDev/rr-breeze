@@ -51,7 +51,7 @@
                                     <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                                         <option>Expires: Next Week</option>
                                         <option>Expires: Next Month</option>
-                                        <option>Expires: Next Month</option>
+                                        <option>Expires: Next Year</option>
                                     </select>
                                   </div>
                                   <div class="p-1">  
