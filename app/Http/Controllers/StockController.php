@@ -2,8 +2,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medicine;
+use App\Models\MedCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 
 class StockController extends Controller
 {
@@ -39,7 +41,8 @@ class StockController extends Controller
      */
     public function create()
     {
-        return view('medication.create');
+        $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
+        return view('medication.create')->withMedCategories($med_categories);
     }
 
 
@@ -54,6 +57,7 @@ class StockController extends Controller
     {
         $request->validate([
             'medicine_id' => 'required',
+            'category_id' => 'required',
             'med_name' => 'required',
             'batch_no' => 'required',
             'expiry_date' => 'required',
@@ -103,7 +107,9 @@ class StockController extends Controller
 
        $med = Medicine::findOrFail($id);
 
-        return view('medication.edit', compact('med'));
+       $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
+
+        return view('medication.edit', compact('med'))->withMedCategories($med_categories);
     }
 
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MedCategory;
 
@@ -20,7 +20,7 @@ class MedCategoryController extends Controller
     {
         $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
 
-        return view('med_categories.index')->with([
+        return view('medcategories.index')->with([
             'med_categories' => $med_categories
         ]);
     }
@@ -32,7 +32,7 @@ class MedCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('medcategories.create');
     }
 
     /**
@@ -43,7 +43,15 @@ class MedCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            //'id' => 'required',
+            'category_name' => 'required',
+        ]);
+
+        MedCategory::create($request->all());
+
+        return redirect()->route('med_category.index')
+            ->with('success', 'Medicine Category added successfully.');
     }
 
     /**
@@ -65,7 +73,11 @@ class MedCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        // return view('meds.edit', compact('med'));
+
+       $med_category = MedCategory::findOrFail($id);
+
+       return view('medcategories.edit', compact('med_category'));
     }
 
     /**
@@ -75,9 +87,16 @@ class MedCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, MedCategory $med_category)
     {
-        //
+        $request->validate([
+            'category_name' => 'required',
+        
+        ]);
+        $med_category->update($request->all());
+
+        return redirect()->route('medcategories.index')
+            ->with('success', 'Medicine updated successfully');
     }
 
     /**

@@ -16,6 +16,7 @@ class Medicine extends Model
 
     protected $fillable =[
         'med_name',
+        'category_id',
         'batch_no',
         'expiry_date',
         'location',
@@ -43,6 +44,18 @@ class Medicine extends Model
             'location',
             'status',
     ];
+
+
+
+    /*public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    */
+    public function medCategory()
+    {
+        return $this->belondsTo('App\Models\MedCategory');
+    }
 
 
     //Assigns medicine as a child element of MedPack

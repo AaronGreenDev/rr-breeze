@@ -161,7 +161,7 @@
                                                 <a href="{{ route('meds.edit', $med->medicine_id) }}">
                                                     Edit
                                                 </a>
-
+                                            </button>
                                             @csrf
                                             @method('DELETE')
 

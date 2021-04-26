@@ -52,6 +52,22 @@
                   <option>Essex</option>
                 </select>
               </div>
+
+              @foreach ($medCategories as $med_category)
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="location" class="block text-sm font-medium text-gray-700">Category</label>
+                  <select id="category_id" name="category_id" placeholder="{{ $med->category_id }}">
+                  <option value="{{ $med_category->id }}" {{ $med_category->id === $med->category_id ? 'selected' : '' }}>{{ $med_category->category_name }} </option>
+                    @if ($med_category->children)
+                          @foreach ($med_category->children as $child)
+                              <option value="{{ $child->medicine_id }}" {{ $child->medicine_id === $medicine->category_id ? 'selected' : '' }}>&nbsp;&nbsp;{{ $child->med_name }}</option>
+                          @endforeach
+                    @endif
+              @endforeach
+                </select>
+              </div>
+
+
             </div>
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

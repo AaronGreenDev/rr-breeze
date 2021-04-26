@@ -18,4 +18,9 @@ class MedCategory extends Model
     {
         return $this->hasMany('App\Models\MedCategory','parent_id');
     }
+
+    public function meds()
+    {
+        return $this->hasMany('App\Models\Medicine');
+    }
 }
