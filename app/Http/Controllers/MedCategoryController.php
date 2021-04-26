@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MedCategory;
+
+// Table name: med_categories
+// Model name: MedCategory
+
 
 class MedCategoryController extends Controller
 {
@@ -13,7 +18,11 @@ class MedCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
+
+        return view('med_categories.index')->with([
+            'med_categories' => $med_categories
+        ]);
     }
 
     /**

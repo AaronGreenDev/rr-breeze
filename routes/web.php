@@ -42,6 +42,8 @@ Route::resource('meds', StockController::class)->middleware(['auth']);
 
 Route::resource('medPack','PackController');
 
+Route::resource('med_category','MedCategoryController');
+
 Route::get('meds/index', 'StockController@indexSorting');
 
 require __DIR__.'/auth.php';
