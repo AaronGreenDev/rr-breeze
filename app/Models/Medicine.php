@@ -54,7 +54,7 @@ class Medicine extends Model
     */
     public function medCategory()
     {
-        return $this->belondsTo('App\Models\MedCategory');
+        return $this->belongsTo('App\Models\MedCategory');
     }
 
 

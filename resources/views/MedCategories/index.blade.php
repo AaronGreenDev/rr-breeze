@@ -27,17 +27,6 @@
 
             <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
 
-            <div class="flex justify-end">
-              <div class="p-1">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                <a href="{{ route('med_category.create') }}">Add</a>
-                </button>
-              </div>
-              
-              
-              </br>
-              </br>
-            </div>
 
             <ul class="block w-11/12  mx-auto" x-data="{selected:null}">
                 <li class="flex align-center flex-col">
@@ -79,10 +68,11 @@
                     </div>
                 </li>
             </ul>
+           
             <div class="flex justify-end">
               <div class="p-1">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                
+                <a href="{{ route('med_category.create') }}">Add</a>
                 </button>
               </div>
               

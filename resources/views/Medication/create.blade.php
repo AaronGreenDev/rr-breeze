@@ -55,16 +55,18 @@
                     </select>
                   </div>
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="location" class="block text-sm font-medium text-gray-700">Medicine Category</label>
-                    <select id="location" name="location" autocomplete="location" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <label for="category_id" class="block text-sm font-medium text-gray-700">Medicine Category</label>
+                    <select id="category_id" name="category_id" autocomplete="category_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     @foreach ($medCategories as $med_category)
-                    <option value="{{ $med_category->id }}" {{ $med_category->id === old('med_category_id') ? 'selected' : '' }}>{{ $med_category->category_name }}</option>
+                    <option value="{{ $med_category->id }}" {{ $med_category->id === old('category_id') ? 'selected' : '' }}>{{ $med_category->category_name }}</option>
+                    
                       @if ($med_category->children)
                         @foreach ($med_category->children as $child)
-                          <option value="{{ $child->medicine_id }}" {{ $child->id === old('category_id') ? 'selected' : '' }}>&nbsp;&nbsp;{{ $child->med_name }}</option>
+                          <option value="{{ $child->medicine_id }}" {{ $child->medicine_id === old('category_id') ? 'selected' : '' }}>&nbsp;&nbsp;{{ $child->med_name }}</option>
                         @endforeach
                       @endif
                     @endforeach
+
                     </select>
                   </div>
                 </div>

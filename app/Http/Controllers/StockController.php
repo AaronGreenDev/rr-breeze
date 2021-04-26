@@ -88,8 +88,9 @@ class StockController extends Controller
          //       ]);
 
        $med = Medicine::findOrFail($id);
+       $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
 
-       return view('medication.show', compact('med'));
+       return view('medication.show', compact('med'))->withMedCategories($med_categories);
     }
 
 
