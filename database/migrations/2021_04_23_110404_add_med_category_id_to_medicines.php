@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMedSingleIdToMedicines extends Migration
+class AddMedCategoryIdToMedicines extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,11 @@ class AddMedSingleIdToMedicines extends Migration
     public function up()
     {
         Schema::table('medicines', function (Blueprint $table) {
-            $table->integer('med_single_id')->unsigned()->nullable()->after('medicine_id');
+            $table->unsignedBigInteger('category_id')->unsigned()->nullable()->after('medicine_id');
+            
+            $table->foreign('category_id')->references('id')->on('med_categories');
+
+
         });
     }
 
@@ -26,8 +30,8 @@ class AddMedSingleIdToMedicines extends Migration
     public function down()
     {
         Schema::table('medicines', function (Blueprint $table) {
-            $table->dropColumn('med_single_id');
-
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
         });
     }
 }
