@@ -93,13 +93,14 @@
                                     ID
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                    @sortablelink('category_name', 'Name')
+                                    @sortablelink('category_name', 'Category Name')
                                 </th>
                                
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                       
                             @foreach ($med_categories as $med_category)
+                            <tbody class="bg-blue-300 divide-y divide-gray-200">
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -119,11 +120,7 @@
                                     <td>
                                        
                                         
-                                            <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                <a href="{{ route('med_category.edit', $med_category->id) }}">
-                                                    Edit
-                                                </a>
-                                            </button>
+                                          
                                             @csrf
                                             @method('DELETE')
 
@@ -141,7 +138,10 @@
                                                     ID
                                                 </th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                                    @sortablelink('category_name', 'Name')
+                                                    @sortablelink('category_name', 'Medicine')
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                    @sortablelink('expiry_date', 'Expiry Date')
                                                 </th>
                                 
                                             </tr>
@@ -161,10 +161,16 @@
                                                             {{ $med->med_name }}
                                                     </div>
                                                 </td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="text-sm text-gray-500">
+                                                            {{ $med->expiry_date }}
+                                                    </div>
+                                                </td>
                                             </td>
                                         @endforeach
-                                        @endif
-                                        @endforeach
+                                    @endif
+                            @endforeach
 
                                         </tbody>
                         </table>
