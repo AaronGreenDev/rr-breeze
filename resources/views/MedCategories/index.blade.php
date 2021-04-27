@@ -134,7 +134,7 @@
                             
                          
 
-                                    @if($med_category->children)
+                                    @if($med_category->meds)
                                         <thead class="bg-gray-50">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -146,19 +146,19 @@
                                 
                                             </tr>
                                         </thead>
-                                        @foreach ($med_category->children as $child)
+                                        @foreach ($med_category->meds as $med)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex items-center">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{ $child->medicine_id }}
+                                                            {{ $med->medicine_id }}
                                                         </div>
                                                     </div>
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="text-sm text-gray-500">
-                                                            {{ $child->med_name }}
+                                                            {{ $med->med_name }}
                                                     </div>
                                                 </td>
                                             </td>
