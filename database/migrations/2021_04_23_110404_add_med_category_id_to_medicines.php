@@ -32,6 +32,7 @@ class AddMedCategoryIdToMedicines extends Migration
         Schema::table('medicines', function (Blueprint $table) {
             $table->dropForeign(['category_id']);
             $table->dropColumn('category_id');
+            
         });
     }
 }

@@ -42,6 +42,12 @@
               Save
             </button>
           </div>
+          <form action="{{ route('med_category.destroy', $med_category->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
         </div>
 
     </form>

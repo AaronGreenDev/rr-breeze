@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MedCategory;
+use App\Models\Medicine;
 
 // Table name: med_categories
 // Model name: MedCategory
@@ -105,8 +106,29 @@ class MedCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(MedCategory $med_category)
     {
-        //
+        if ($med_category->children) {
+            foreach ($med_category->children()->with('meds')->get() as $child) {
+                foreach ($child->meds as $med) {
+                    $med->update(['category_id' => NULL]);
+                }
+            }
+            
+            $med_category->children()->delete();
+        }
+
+        
+        foreach ($med_category->meds as $med) {
+            $med->update(['category_id' => NULL]);
+        }
+
+        $med_category->delete();
+
+        return redirect()->route('medcategories.index')->withSuccess('You have successfully deleted a Category!');
     }
+
+
+  
 }
+

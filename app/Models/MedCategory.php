@@ -16,11 +16,16 @@ class MedCategory extends Model
 
     public function children()
     {
-        return $this->hasMany('App\Models\MedCategory','parent_id');
+        return $this->hasMany('App\Models\Medicine','parent_id');
+    }
+
+    public function category()
+    {
+        return $this->hasMany('App\Models\Medicine');
     }
 
     public function meds()
     {
-        return $this->hasMany('App\Models\Medicine');
+        return $this->hasMany('App\Models\Medicine','category_id');
     }
 }

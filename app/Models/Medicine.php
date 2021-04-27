@@ -8,6 +8,7 @@ use Kyslik\ColumnSortable\Sortable;
 use eloquentFilter\QueryFilter\ModelFilters\Filterable;
 
 
+
 class Medicine extends Model
 {
     use HasFactory;
@@ -26,6 +27,8 @@ class Medicine extends Model
 
     //Changes primary key from default = id
     protected $primaryKey = 'medicine_id';
+
+   
 
     //Defines sortable columns
     public $sortable =[
@@ -54,9 +57,14 @@ class Medicine extends Model
     */
     public function medCategory()
     {
-        return $this->belongsTo('App\Models\MedCategory');
+        $category = MedCategory::find(1);
+        return $category->category->category_name;
     }
 
+    public function category()
+    {
+        return $this->belongsTo('App\Models\MedCategory','category_id');
+    }
 
     //Assigns medicine as a child element of MedPack
     public function medpack()
