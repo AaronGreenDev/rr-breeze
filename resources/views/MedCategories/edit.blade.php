@@ -38,10 +38,10 @@
             </div>
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="submit" class=" justify-center py-3 px-6 border border-transparent uppercase shadow-sm text-sm font-bold rounded text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Save
             </button>
-          </div>
+          
 
     </form>      
 
@@ -52,7 +52,7 @@
 
                
 
-                <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
+                <button class="bg-red-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
                     Delete
                     </button>
                     <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
@@ -98,6 +98,7 @@
                     }
                     </script>
           </form>
+          </div>
         </div>
 
     </form>
