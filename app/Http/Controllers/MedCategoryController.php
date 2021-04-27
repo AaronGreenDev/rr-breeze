@@ -125,7 +125,7 @@ class MedCategoryController extends Controller
 
         $med_category->delete();
 
-        return redirect()->route('medcategories.index')->withSuccess('You have successfully deleted a Category!');
+        return redirect()->route('med_category.index')->with('success','You have successfully deleted a Category!');
     }
 
 
