@@ -36,12 +36,12 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('meds.index')" :active="request()->routeIs('meds.index')">
-                        {{ __('Stock List') }}
+                        {{ __('Med List') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('med_category.index')" :active="request()->routeIs('med_category.index')">
-                        {{ __('Category List') }}
+                        {{ __('Stock List') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -62,6 +62,11 @@
                     </x-slot>
 
                     <x-slot name="content">
+
+                            <x-dropdown-link :href="route('admin')">
+                                {{ __('Admin') }}
+                            </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -72,6 +77,7 @@
                                 {{ __('Log out') }}
                             </x-dropdown-link>
                         </form>
+                       
                     </x-slot>
                 </x-dropdown>
             </div>

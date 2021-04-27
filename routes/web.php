@@ -47,4 +47,8 @@ Route::resource('med_category', MedCategoryController::class)->middleware(['auth
 
 Route::get('meds/index', 'StockController@indexSorting');
 
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware(['auth'])->name('admin');
+
 require __DIR__.'/auth.php';

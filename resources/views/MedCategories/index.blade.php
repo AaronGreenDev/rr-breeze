@@ -104,14 +104,15 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="text-sm font-medium text-gray-900">
+                                            <div class="text-sm font-medium text-white">
                                                 {{ $med_category->id }}
                                             </div>
                                         </div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">
+                                        <div class="text-sm text-white">
+                                                
                                                 {{ $med_category->category_name }}
                                         </div>
                                     </td>

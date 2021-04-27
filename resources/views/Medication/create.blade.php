@@ -54,9 +54,7 @@
                       <option>Essex</option>
                     </select>
                   </div>
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="category_id" class="block text-sm font-medium text-gray-700">Medicine Category</label>
-                    <select id="parent_id" name="parent_id" autocomplete="parent_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                 
                     @foreach ($medCategories as $med_category)
                     <option value="{{ $med_category->id }}"> {{ $med_category->category_name }}</option>
                     
