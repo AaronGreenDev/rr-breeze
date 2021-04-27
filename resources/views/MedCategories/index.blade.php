@@ -72,11 +72,9 @@
             <div class="flex justify-end">
               <div class="p-1">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                <a href="{{ route('med_category.create') }}">Add</a>
+                <a href="{{ route('med_category.create') }}">Add Medicine Category</a>
                 </button>
-              </div>
-              
-              
+              </div>  
               </br>
               </br>
             </div>
@@ -116,6 +114,14 @@
                                                 {{ $med_category->category_name }}
                                         </div>
                                     </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                <a href="{{ route('med_category.edit', $med_category->id) }}">
+                                                    Edit
+                                                </a>
+                                        </button>
+                                    </td>
+
                                 </td>
 
                                     <td>

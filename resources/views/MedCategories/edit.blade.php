@@ -42,14 +42,18 @@
               Save
             </button>
           </div>
-          <form action="{{ route('med_category.destroy', $med_category->id) }}" method="POST">
+
+    </form>      
+
+    
+    <form action="{{ route('med_category.destroy', $med_category->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+               
 
                 <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
-                    Open small modal
+                    Delete
                     </button>
                     <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
                     <div class="relative w-auto my-6 mx-auto max-w-sm">

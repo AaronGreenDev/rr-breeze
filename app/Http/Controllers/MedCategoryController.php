@@ -96,7 +96,7 @@ class MedCategoryController extends Controller
         ]);
         $med_category->update($request->all());
 
-        return redirect()->route('medcategories.index')
+        return redirect()->route('med_category.index')
             ->with('success', 'Medicine updated successfully');
     }
 
