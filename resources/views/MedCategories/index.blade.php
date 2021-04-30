@@ -159,9 +159,16 @@
                                            
                                                 <input class="absolute opacity-0 " id="tab-multi-{{ $med_category->id }} " type="checkbox" name="{{ $med_category->id }} tabs">
                                                 
-                                                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-{{ $med_category->id }} "> <strong>{{ $med_category->category_name }}</strong> &#13;
-                                                Quantity: 100  &#13;
-                                                Expires Soonest: B45R1
+                                                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-{{ $med_category->id }} ">
+                                                    <strong>{{ $med_category->category_name }}</strong> &#13;
+                                                    Quantity: 100  &#13;
+                                                    Expires Soonest: B45R1
+
+                                                    <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                        <a href="{{ route('med_category.edit', $med_category->id) }}">
+                                                            Edit
+                                                        </a>
+                                                    </button>
                                                 </label>
                                                 
                                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
@@ -214,11 +221,6 @@
                                     </div>
                                    
                                   
-                                        <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                <a href="{{ route('med_category.edit', $med_category->id) }}">
-                                                    Edit
-                                                </a>
-                                        </button>
                                     
 
                                 
