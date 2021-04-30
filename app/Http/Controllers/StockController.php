@@ -56,7 +56,7 @@ class StockController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'medicine_id' => 'required',
+            //'medicine_id' => 'required',
             'category_id' => 'required',
             'med_name' => 'required',
             'batch_no' => 'required',
