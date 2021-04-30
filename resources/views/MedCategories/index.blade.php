@@ -177,38 +177,49 @@
                                                   
                                                         <thead class="bg-gray-50">
                                                             <tr>
-                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                    ID
-                                                                </th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                     @sortablelink('category_name', 'Medicine')
                                                                 </th>
                                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('batch_no', 'Batch Number')
+                                                                </th>
+                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('location', 'Location')
+                                                                </th>
+                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                     @sortablelink('expiry_date', 'Expiry Date')
                                                                 </th>
-                                                
+                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('status', 'Status')
+                                                                </th>
                                                             </tr>
                                                         </thead>
                                                         @foreach ($med_category->meds as $med)
-                                                            <tr>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="text-sm font-medium text-gray-900">
-                                                                            {{ $med->medicine_id }}
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
+                                                            <tr>                                                         
                                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                                     <div class="text-sm text-gray-500">
                                                                             {{ $med->med_name }}
                                                                     </div>
                                                                 </td>
-
+                                                                <td class="px-6 py-4 whitespace-nowrap">             
+                                                                    <div class="text-sm text-gray-500">
+                                                                            {{ $med->batch_no }}
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                    <div class="text-sm text-gray-500">
+                                                                            {{$med->location}}
+                                                                    </div>         
+                                                                </td>
                                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                                     <div class="text-sm text-gray-500">
                                                                             {{ $med->expiry_date }}
                                                                     </div>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-green-800">
+                                                                            {{ $med->status }}
+                                                                    </span>
                                                                 </td>
                                                             </td>
                                                     
