@@ -56,7 +56,7 @@
                 <dl>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-6">
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-                        <a href="{{ route('meds.create') }}">Edit Category Names</a>
+                        <a href="{{ route('med_category.create') }}">Edit Category Names</a>
                         </button>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-6">
