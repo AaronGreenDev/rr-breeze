@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\MedName;
 
 class MedNameController extends Controller
 {
     public function index()
     {
-       //
+        $med_names = MedName::get();
+
+        return view('medname.index')->with([
+            'med_names' => $med_names
+        ]);
     }
 
     /**
@@ -36,7 +42,7 @@ class MedNameController extends Controller
 
         MedName::create($request->all());
 
-        return redirect()->route('medname.index')
+        return redirect()->route('med_name.index')
             ->with('success', 'Medicine Name added successfully.');
     }
 
@@ -96,7 +102,7 @@ class MedNameController extends Controller
         
         $med_name->delete();
 
-        return redirect()->route('medname.index')->with('success','You have successfully deleted a Category!');
+        return redirect()->route('med_name.index')->with('success','You have successfully removed a Medication Name!');
     }
 
 }

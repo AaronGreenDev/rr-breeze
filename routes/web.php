@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\MedCategoryController;
+use App\Http\Controllers\MedNameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,8 @@ Route::get('/stockList', function () {
 Route::resource('meds', StockController::class)->middleware(['auth']);
 
 Route::resource('medPack','PackController');
+
+Route::resource('med_name',MedNameController::class)->middleware(['auth']);
 
 Route::resource('med_category', MedCategoryController::class)->middleware(['auth']);
 

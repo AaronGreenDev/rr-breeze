@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medicine;
 use App\Models\MedCategory;
+use App\Models\MedName;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -42,7 +43,8 @@ class StockController extends Controller
     public function create()
     {
         $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
-        return view('medication.create')->withMedCategories($med_categories);
+        $med_names = MedName::get();
+        return view('medication.create')->withMedCategories($med_categories)->withMedNames($med_names);
     }
 
 
