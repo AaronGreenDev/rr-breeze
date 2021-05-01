@@ -48,8 +48,59 @@
             </div>
           </form>
         </div>
-      </div>
-    </div>
+      
+    
+
+    <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                    @sortablelink('name', 'Name')
+                                </th>
+                                <th scope="col" class="relative px-6 py-3">
+                                    <span class="sr-only">Edit</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($med_categories as $med_category)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="text-sm font-medium text-gray-900">
+                                                {{ $med_category->category_name }}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                       <form action="{{ route('med_category.destroy', $med_category->id) }}" method="POST">
+                                          
+                                            @csrf
+                                            @method('DELETE')
+
+
+                                            <div class="p-1">  
+                                                <button type="submit" title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                    Delete
+                                                </button>
+                                            </div>
+    
+                                       </form> 
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>    
+</div>    
 
 @endsection
 

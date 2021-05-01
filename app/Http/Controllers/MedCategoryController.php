@@ -33,7 +33,11 @@ class MedCategoryController extends Controller
      */
     public function create()
     {
-        return view('medcategories.create');
+        $med_categories = MedCategory::get();
+
+        return view('medcategories.create')->with([
+            'med_categories' => $med_categories
+            ]);
     }
 
     /**
