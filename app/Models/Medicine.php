@@ -20,6 +20,7 @@ class Medicine extends Model
         'category_id',
         'batch_no',
         'expiry_date',
+        'quantity',
         'location',
         'status',
 
@@ -35,6 +36,7 @@ class Medicine extends Model
             'med_name',
             'batch_no',
             'expiry_date',
+            'quantity',
             'location',
             'status',
 
@@ -44,6 +46,7 @@ class Medicine extends Model
             'med_name',
             'batch_no',
             'expiry_date',
+            'quantity',
             'location',
             'status',
     ];

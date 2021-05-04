@@ -177,19 +177,22 @@
                                                   
                                                         <thead class="bg-gray-50">
                                                             <tr>
-                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                     @sortablelink('category_name', 'Medicine')
                                                                 </th>
-                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                     @sortablelink('batch_no', 'Batch Number')
                                                                 </th>
-                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                     @sortablelink('location', 'Location')
                                                                 </th>
-                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                     @sortablelink('expiry_date', 'Expiry Date')
                                                                 </th>
-                                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('quantity', 'Quantity')
+                                                                </th>
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                     @sortablelink('status', 'Status')
                                                                 </th>
                                                             </tr>
@@ -213,7 +216,12 @@
                                                                 </td>
                                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                                     <div class="text-sm text-gray-500">
-                                                                            {{ $med->expiry_date }}
+                                                                            {{ date('m-y', strtotime($med->expiry_date ))}}
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <div class="text-sm text-gray-500">
+                                                                            {{ $med->quantity }}
                                                                     </div>
                                                                 </td>
                                                                 <td class="px-6 py-4 whitespace-nowrap">

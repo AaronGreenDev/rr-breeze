@@ -63,6 +63,7 @@ class StockController extends Controller
             'med_name' => 'required',
             'batch_no' => 'required',
             'expiry_date' => 'required',
+            'quantity' => 'required',
             'location' => 'required',
         ]);
 
@@ -130,6 +131,7 @@ class StockController extends Controller
             'med_name' => 'required',
             'batch_no' => 'required',
             'expiry_date' => 'required',
+            'quantity' => 'required',
             'location' => 'required',
         
         ]);
