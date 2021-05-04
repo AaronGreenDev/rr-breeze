@@ -27,85 +27,69 @@
             <div class="shadow overflow-hidden sm:rounded-md">
               <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
-                 <!-- <div class="col-span-6 sm:col-span-3">
-                    <label for="medicine_id" class="block text-sm font-medium text-gray-700">Medication Id</label>
-                    <input type="text" name="medicine_id" id="medicine_id" autocomplete="medicine_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                  </div> -->
+                
+                     
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="med_name" class="block text-sm font-medium text-gray-700">Medication Name</label>
+                      <select id="med_name" name="med_name" autocomplete="med_name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        @foreach ($medNames as $med_name)
+                          <option value="{{ $med_name->name }}"> {{ $med_name->name }}</option>
+                      
+                        
+                        
+                        @endforeach
 
+                      </select>
+
+                    </div>  
+
+                      <div class="col-span-6 sm:col-span-3">
+                   
+                        <label for="batch_no" class="block text-sm font-medium text-gray-700">Batch Number</label>
+                        <input type="text" name="batch_no" id="batch_no" autocomplete="batch_no" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    </div>
+
+                      <div class="col-span-6 sm:col-span-3">
+                        <label for="expiry_date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+                        <input type="date" name="expiry_date" id="expiry_date" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      </div>
+
+
+                      <div class="col-span-6 sm:col-span-3">
+                        <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
+                        <input type="number" name="quantity" id="quantity" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      </div>
+
+                      <div class="col-span-6 sm:col-span-3">
+                        <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                        <select id="location" name="location" autocomplete="location" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                          <option>Cannock</option>
+                          <option>Essex</option>
+                        </select>
+                      </div>
                   
+                      @foreach ($medCategories as $med_category)
+                        <option value="{{ $med_category->id }}"> {{ $med_category->category_name }}</option>
+                      @endforeach
 
-                  @foreach ($medNames as $med_name)
-                    <option value="{{ $med_name->name }}"> {{ $med_name->name }}</option>
-                    
                       
-                      
-                    @endforeach
-                    </select>
 
-                    <div class="col-span-6 sm:col-span-3">
-                    <label for="med_name" class="block text-sm font-medium text-gray-700">Medication Name</label>
-                    <select id="med_name" name="med_name" autocomplete="med_name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    @foreach ($medNames as $med_name)
-                    <option value="{{ $med_name->name }}"> {{ $med_name->name }}</option>
-                    
-                      
-                      
-                    @endforeach
+                      <div class="col-span-6 sm:col-span-3">
+                        <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
+                        <select id="category_id" name="category_id" autocomplete="category_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                          @foreach ($medCategories as $med_category)
+                            <option value="{{ $med_category->id }}"> {{ $med_category->category_name }}</option>
+                          @endforeach
 
-                    </select>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="batch_no" class="block text-sm font-medium text-gray-700">Batch Number</label>
-                    <input type="text" name="batch_no" id="batch_no" autocomplete="batch_no" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="expiry_date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
-                    <input type="text" name="expiry_date" id="expiry_date" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                  </div>
-
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
-                    <input type="text" name="quantity" id="quantity" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
-                    <select id="location" name="location" autocomplete="location" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                      <option>Cannock</option>
-                      <option>Essex</option>
-                    </select>
-                  </div>
-                 
-                    @foreach ($medCategories as $med_category)
-                    <option value="{{ $med_category->id }}"> {{ $med_category->category_name }}</option>
-                    
-                      
-                      
-                    @endforeach
-
-                    </select>
-
-                    <div class="col-span-6 sm:col-span-3">
-                    <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
-                    <select id="category_id" name="category_id" autocomplete="category_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    @foreach ($medCategories as $med_category)
-                    <option value="{{ $med_category->id }}"> {{ $med_category->category_name }}</option>
-                    
-                      
-                      
-                    @endforeach
-
-                    </select>
+                      </select>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  Save
-                </button>
-              </div>
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Save
+                  </button>
+                </div>
             </div>
           </form>
         </div>

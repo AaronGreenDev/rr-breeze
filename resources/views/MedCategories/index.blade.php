@@ -134,15 +134,7 @@
                 </li>
             </ul>
            
-            <div class="flex justify-end">
-              <div class="p-1">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                <a href="{{ route('med_category.create') }}">Add Medicine Category</a>
-                </button>
-              </div>  
-              </br>
-              </br>
-            </div>
+           
 
 
         <div class="flex flex-col">
@@ -152,23 +144,19 @@
                         
                             @foreach ($med_categories as $med_category)
 
-                            <div class="w-full md:w-3/5 mx-auto p-8">
+                            <div class="w-full md:w-4/5 mx-auto p-8">
                                         <p></p>
                                         <div class="shadow-md">
                                             <div class="tab w-full overflow-hidden border-t">
                                            
                                                 <input class="absolute opacity-0 " id="tab-multi-{{ $med_category->id }} " type="checkbox" name="{{ $med_category->id }} tabs">
                                                 
-                                                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-{{ $med_category->id }} ">
-                                                    <strong>{{ $med_category->category_name }}</strong> &#13;
-                                                    Quantity: 100  &#13;
-                                                    Expires Soonest: B45R1
-
-                                                    <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                        <a href="{{ route('med_category.edit', $med_category->id) }}">
-                                                            Edit
-                                                        </a>
-                                                    </button>
+                                                <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $med_category->id }} ">
+                                                    <strong>{{ $med_category->category_name }}</strong>
+                                                    <p>
+                                                    Quantity:   &#13;
+                                                    </p>
+                                                    Expires Soonest: 
                                                 </label>
                                                 
                                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
@@ -233,6 +221,11 @@
                                                     
                                                         @endforeach
                                                     @endif
+                                                    <!--<button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                        <a href="{{ route('med_category.edit', $med_category->id) }}">
+                                                            Edit
+                                                        </a>
+                                                    </button>-->
                                                     </table>
                                                     </div>
                                             </div>
