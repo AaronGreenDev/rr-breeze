@@ -40,10 +40,6 @@
     @endif
 
 
-
-
-</br>
-
     
         <div class="md:col-span-2">
           <div class="px-4 p-2  sm:px-5">
