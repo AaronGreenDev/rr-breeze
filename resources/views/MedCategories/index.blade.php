@@ -217,6 +217,33 @@
                                                                             {{ $med->status }}
                                                                     </span>
                                                                 </td>
+
+                                                                <td>
+                                                                    <!-- <form action="{{ route('meds.destroy', $med->medicine_id) }}" method="POST">-->
+                                                                        <button title="view" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                            <a href="{{ route('meds.show', $med->medicine_id) }}" title="show">
+                                                                                View
+                                                                            </a>
+                                                                        </button>
+                                                                        <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                            <a href="{{ route('meds.edit', $med->medicine_id) }}">
+                                                                                Edit
+                                                                            </a>
+                                                                        </button>
+                                                                        @csrf
+                                                                        @method('DELETE')
+
+
+                                                                    <!-- <div class="p-1">  
+                                                                            <button type="submit" title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                                X
+                                                                            </button>
+                                                                        </div>-->
+                                
+                                                                    <!--   </form> -->
+                                                                </td>
+
+
                                                             </td>
                                                     
                                                         @endforeach
