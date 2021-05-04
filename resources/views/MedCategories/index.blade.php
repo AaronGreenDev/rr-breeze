@@ -132,9 +132,17 @@
                         </div>
                     </div>
                 </li>
+                </br>
+                <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                 <a href="{{ route('meds.create') }}">
+                     Add
+                </a>
+            </button>
             </ul>
+
            
            
+           </br>
 
 
         <div class="flex flex-col">
@@ -157,6 +165,7 @@
                                                     Quantity:   &#13;
                                                     </p>
                                                     Expires Soonest: 
+                                                    
                                                 </label>
                                                 
                                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
@@ -248,11 +257,7 @@
                                                     
                                                         @endforeach
                                                     @endif
-                                                    <!--<button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                        <a href="{{ route('med_category.edit', $med_category->id) }}">
-                                                            Edit
-                                                        </a>
-                                                    </button>-->
+                                                  
                                                     </table>
                                                     </div>
                                             </div>
