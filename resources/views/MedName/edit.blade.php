@@ -17,6 +17,14 @@
         </div>
     @endif
 
+    <div class="py-3">
+            <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                 <a href="{{ route('med_name.index') }}">
+                     Back
+                </a>
+            </button>
+        </div> 
+
     <form action="{{ route('med_name.update', $med_name->id) }}" method="POST">
         @csrf
         @method('PUT')

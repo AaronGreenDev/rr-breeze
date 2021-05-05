@@ -89,8 +89,32 @@
                 </div>
             @endif
 
+            <div class="mt-1 flex justify-between items-center">        
+                <div class="py-3 pr-3">
+                    <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                        <a href="{{ route('dashboard') }}">
+                            Back
+                        </a>
+                    </button>
+                </div>  
+                <div class="order-last">
+                    <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                        <a href="{{ route('meds.create') }}">
+                            Add New Stock
+                        </a>
+                    </button>
+                </div>
+            
+</div>
+           
+           
+           </br>
 
-            <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
+
+        <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
 
 
             <ul class="block w-11/12  mx-auto" x-data="{selected:null}">
@@ -132,22 +156,6 @@
                         </div>
                     </div>
                 </li>
-                </br>
-                <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                 <a href="{{ route('meds.create') }}">
-                     Add
-                </a>
-            </button>
-            </ul>
-
-           
-           
-           </br>
-
-
-        <div class="flex flex-col">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         
                             @foreach ($med_categories as $med_category)
@@ -164,7 +172,10 @@
                                                     <p>
                                                     Quantity:   &#13;
                                                     </p>
+                                                
                                                     Expires Soonest: 
+                                                   
+                                                  
                                                     
                                                 </label>
                                                 

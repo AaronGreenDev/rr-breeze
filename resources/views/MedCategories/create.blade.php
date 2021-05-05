@@ -15,6 +15,14 @@
           </div>
     @endif
 
+    <div class="py-3">
+            <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                 <a href="{{ route('admin') }}">
+                     Back
+                </a>
+            </button>
+        </div> 
+
     
         <div class="md:col-span-2">
           <div class="px-4 p-2  sm:px-5">
