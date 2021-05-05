@@ -41,11 +41,7 @@
          }
          /* Icon formatting - closed */
          .tab input[type=checkbox] + label::after {
-         content: "+";
-         font-weight:bold; /*.font-bold*/
-         border-width: 1px; /*.border*/
-         border-radius: 9999px; /*.rounded-full */
-         border-color: #b8c2cc; /*.border-grey*/
+        
          }
          .tab input[type=radio] + label::after {
          content: "\25BE";
@@ -168,14 +164,20 @@
                                                 <input class="absolute opacity-0 " id="tab-multi-{{ $med_category->id }} " type="checkbox" name="{{ $med_category->id }} tabs">
                                                 
                                                 <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $med_category->id }} ">
-                                                    <strong>{{ $med_category->category_name }}</strong>
-                                                    <p>
-                                                    Quantity:   &#13;
-                                                    </p>
-                                                
-                                                    Expires Soonest: 
+                                                <div class="mt-1 flex justify-between items-center"> 
+                                                    <div class="order-2">
+                                                        <strong>{{ $med_category->category_name }}</strong>
+                                                    </div>
+                                                    <div class="order-2">
+                                                        Quantity:   
+                                                        <p>{{ $med_category->total($med_category)}}</p>
+                                                    </div>
+                                                    <div class="order-last">                  
+                                                        Expires Soonest: 
+                                                        <p>{{ $med_category->expires_soonest($med_category)}}</p>
+                                                    </div>
                                                    
-                                                  
+                                                </div>  
                                                     
                                                 </label>
                                                 

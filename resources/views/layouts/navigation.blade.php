@@ -30,11 +30,6 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('restock')" :active="request()->routeIs('restock')">
-                        {{ __('Restock') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('med_category.index')" :active="request()->routeIs('med_category.index')">
                         {{ __('Stock List') }}
                     </x-nav-link>
