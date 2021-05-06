@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class MedCategory extends Model
 {
@@ -46,22 +47,30 @@ class MedCategory extends Model
 
     public function expires_soonest(MedCategory $med_category)
     {
-        $expires_soonest = 0;
-        if ($med_category->children) {
-            foreach ($med_category->children()->with('meds')->get() as $child) {
+        $expires_soonest = Carbon::now();
+        $expires_soonest = new Carbon();
+        $expires_soonest_batch = 'None';
+      
+        //Compares the expiry date against the current datetime and returns the batch number of the med that is less
                
-                foreach ($child->meds as $med) {
-                    if($med->expiry_date < $expires_soonest)
-                    {
-                        $expires_soonest = $med->expiry_date;
-                    }
-            
-                }
-
-                return $expires_soonest;
+        foreach ($med_category->meds as $med) 
+        {
+            if($med->expiry_date < $expires_soonest)
+            {
+                $expires_soonest_batch = $med->batch_no;
+            }
+        //If there is only one medication in the category return the batch number    
+            else
+            {
+                return $med->batch_no;
             }
             
-            
+                
+
+            return $expires_soonest_batch;
         }
+            
+            
+        
     }
 }
