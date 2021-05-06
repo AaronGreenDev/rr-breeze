@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 use eloquentFilter\QueryFilter\ModelFilters\Filterable;
+use Carbon\Carbon;
 
 
 
@@ -83,6 +84,28 @@ class Medicine extends Model
 
         return $this->medpack->pack_id;
 
+    }
+
+    public function check_status(Medicine $med)
+    {
+         $current_date = Carbon::now();
+         $current_date = new Carbon();
+        
+
+      
+            
+            if($med->expiry_date > $current_date)
+            {
+               
+                $med->status = 'In Date';
+            }   
+            else
+            {
+                $med->status = 'Expired';
+            }
+          
+        return $med->status;
+            
     }
 
    

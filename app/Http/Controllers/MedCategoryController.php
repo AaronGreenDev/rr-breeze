@@ -133,6 +133,14 @@ class MedCategoryController extends Controller
     }
 
 
+      //Sort
+      public function indexSorting()
+      {
+          $meds = Medicine::sortable()->paginate(5);
+          return view('med_category.index')->with('meds',$meds);
+      }
+
+
     
 
 
