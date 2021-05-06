@@ -33,23 +33,15 @@ class MedCategory extends Model
     {
         $med_category = MedCategory::findOrFail($id);
         $total = 0;
-       
-            foreach ($med_category->get() as $child)
-            {
-               
-                foreach ($child->meds as $med) 
-                {
+        foreach ($med_category->meds as $med) 
+        {
                    
-                    $total = $total + 1;
+            $total = $total + 1;
             
-                }
-
-                return $total;
-            }
-            
-            
+        }
         
-
+        return $total;
+                
     }
 
     public function expires_soonest(MedCategory $med_category)
