@@ -165,12 +165,12 @@
                                                 
                                                 <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $med_category->id }} ">
                                                 <div class="mt-1 flex justify-between items-center"> 
-                                                    <div class="order-2">
+                                                    <div class="order-">
                                                         <strong>{{ $med_category->category_name }}</strong>
                                                     </div>
                                                     <div class="order-2">
                                                         Quantity:   
-                                                        <p>{{ $med_category->total($med_category)}}</p>
+                                                        <p>{{ $med_category->total($med_category->id)}}</p>
                                                     </div>
                                                     <div class="order-last">                  
                                                         Expires Soonest: 
