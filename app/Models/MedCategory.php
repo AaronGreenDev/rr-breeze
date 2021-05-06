@@ -78,4 +78,6 @@ class MedCategory extends Model
             
         
     }
+
+    
 }
