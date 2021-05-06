@@ -137,7 +137,7 @@ class StockController extends Controller
         ]);
         $med->update($request->all());
 
-        return redirect()->route('meds.index')
+        return redirect()->route('med_category.index')
             ->with('success', 'Medicine updated successfully');
     }
 

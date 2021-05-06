@@ -47,28 +47,33 @@ class MedCategory extends Model
 
     public function expires_soonest(MedCategory $med_category)
     {
-        $expires_soonest = Carbon::now();
-        $expires_soonest = new Carbon();
+        //$expires_soonest = Carbon::now();
+        //$expires_soonest = new Carbon();
+        $expires_soonest = 2100-00-00;
         $expires_soonest_batch = 'None';
+        $earliest_med = new Medicine();
+
       
         //Compares the expiry date against the current datetime and returns the batch number of the med that is less
                
         foreach ($med_category->meds as $med) 
         {
+            
             if($med->expiry_date < $expires_soonest)
             {
-                $expires_soonest_batch = $med->batch_no;
+                $expires_soonest = $med->expiry_date;
+                $earliest_med = $med; 
+
             }
         //If there is only one medication in the category return the batch number    
-            else
-            {
-                return $med->batch_no;
-            }
-            
+          
+        $expires_soonest_batch = $med->batch_no;
                 
-
-            return $expires_soonest_batch;
+           
         }
+
+    
+        return $earliest_med->batch_no;
             
             
         

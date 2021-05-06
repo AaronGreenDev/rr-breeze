@@ -69,7 +69,9 @@
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-500">
-                                                {{ $med->expiry_date }}
+                                               
+                                        {{ date('m-y', strtotime($med->expiry_date ))}}
+                                                
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
