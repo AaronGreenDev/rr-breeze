@@ -54,4 +54,6 @@ Route::get('/admin', function () {
     return view('admin');
 })->middleware(['auth'])->name('admin');
 
+Route::get('med_category/index-datatables', 'MedCategoryController@indexDatatables');
+
 require __DIR__.'/auth.php';

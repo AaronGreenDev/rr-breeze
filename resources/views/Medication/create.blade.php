@@ -179,9 +179,7 @@
                         </select>
                       </div>
                   
-                      @foreach ($medCategories as $med_category)
-                        <option value="{{ $med_category->id }}"> {{ $med_category->category_name }}</option>
-                      @endforeach
+              
 
                       
 

@@ -110,6 +110,8 @@
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+
+                <!--
                 <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
 
 
@@ -118,6 +120,7 @@
                     <h4 @click="selected !== 0 ? selected = 0 : selected = null"
                     class="cursor-pointer px-5 py-3 bg-indigo-300 text-white text-center inline-block hover:opacity-75 hover:shadow hover:-mb-3 rounded-t"> Filters</h4>
                     <div x-show="selected == 0" class="border py-4 px-2">
+                    <form class="form-inline" method="GET">
                         <div class="relative">
                             <div class="mt-5 md:mt-1 md:col-span-2">
                              <div class="flex flex-row ...">
@@ -133,25 +136,18 @@
                                         <option>Expired</option>
                                     </select>
                                   </div>
-                                  <div class="p-1">
-                                    <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                                        <option>Expires: Next Week</option>
-                                        <option>Expires: Next Month</option>
-                                        <option>Expires: Next Year</option>
-                                    </select>
-                                  </div>
-                                  <div class="p-1">  
-                                    <div class="p-2">  
-                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded content-end">
-                                            Filter
-                                        </button>
-                                    </div>
-                                  </div>    
+                        
+                            
+                                  <button type="submit" class="btn btn-default mb-2">Filter</button>
+                               
                                </div>
                             </div>
                         </div>
                     </div>
-                </li>
+                    </form>
+                </li> -->
+
+                
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         
                             @foreach ($med_categories as $med_category)
@@ -169,7 +165,7 @@
                                                         <strong>{{ $med_category->category_name }}</strong>
                                                     </div>
                                                     <div class="order-2">
-                                                        Quantity:   
+                                                        Batches:   
                                                         <p>{{ $med_category->total($med_category->id)}}</p>
                                                     </div>
                                                     <div class="order-last">                  
