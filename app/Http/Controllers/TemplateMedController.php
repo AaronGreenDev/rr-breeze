@@ -38,7 +38,42 @@ class TemplateMedController extends Controller
 
         TemplateMed::create($request->all());
 
-        return redirect()->route('template_med.index')
+        return redirect()->route('pack_template.index')
             ->with('success', 'Medicine added successfully.');
     }
+
+    public function edit($id)
+    {
+       // return view('meds.edit', compact('med'));
+
+       $template_med = TemplateMed::findOrFail($id);
+
+       $pack_templates = PackTemplate::with('children')->whereNull('id')->get();
+
+        return view('templateMed.edit', compact('template_med'))->withPackTemplates($pack_templates);
+    }
+
+
+
+    /**
+     * Update the Medication in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Medicine  $med
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, TemplateMed $template_med)
+    {
+        $request->validate([
+            'template_id' => 'required',
+            'temp_med' => 'required',
+            'quantity' => 'required',
+
+        ]);
+        $template_med->update($request->all());
+
+        return redirect()->route('pack_template.index')
+            ->with('success', 'Medicine updated successfully');
+    }
+
 }

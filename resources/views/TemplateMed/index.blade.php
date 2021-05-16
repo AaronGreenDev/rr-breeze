@@ -19,7 +19,7 @@
 
     <div class="py-3">
             <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                 <a href="{{ route('med_category.index') }}">
+                 <a href="{{ route('pack_template.index') }}">
                      Back
                 </a>
             </button>
@@ -53,11 +53,22 @@
 
                     </div>  
 
-                      <div class="col-span-6 sm:col-span-3">
+                    <div class="col-span-6 sm:col-span-3">
                    
                         <label for="temp_quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
-                        <input type="text" name="temp_quantity" id="temp_quantity" autocomplete="temp_quantity" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
+                        <input type="number" name="temp_quantity" id="temp_quantity" autocomplete="temp_quantity" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="template_id" class="block text-sm font-medium text-gray-700">Template</label>
+                        <select id="template_id" name="template_id" autocomplete="template_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            @foreach ($packTemplates as $pack_template)
+                                <option value="{{ $pack_template->id }}"> {{ $pack_template->template_name }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
                    	 
               </div>
 
@@ -71,15 +82,7 @@
                       
 
 
-    <div class="col-span-6 sm:col-span-3">
-        <label for="template_id" class="block text-sm font-medium text-gray-700">Template</label>
-        <select id="template_id" name="template_id" autocomplete="template_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-            @foreach ($packTemplates as $pack_template)
-                <option value="{{ $pack_template->id }}"> {{ $pack_template->template_name }}</option>
-            @endforeach
-
-        </select>
-    </div>
+    
 </div>
 <br>
 <br>
