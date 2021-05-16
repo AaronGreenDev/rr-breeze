@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PackTemplate;
+use App\Models\TemplateMed;
+use App\Models\MedCategory;
 
 class PackTemplateController extends Controller
 {
@@ -83,7 +85,7 @@ class PackTemplateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MedCategory $med_category)
+    public function update(Request $request, PackTemplate $pack_template)
     {
         $request->validate([
             'template_name' => 'required',
@@ -91,7 +93,7 @@ class PackTemplateController extends Controller
         ]);
         $pack_template->update($request->all());
 
-        return redirect()->route('packTemplates.index')
+        return redirect()->route('pack_template.index')
             ->with('success', 'Template updated successfully');
     }
 

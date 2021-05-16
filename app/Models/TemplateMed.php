@@ -22,4 +22,17 @@ class TemplateMed extends Model
     {
         return $this->belongsTo('App\Models\PackTemplate','template_id');
     }
+
+    public function findTemplate()
+    {
+        $template = PackTemplate::find(1);
+        return $template->template->template_name;
+    }
+
+     //Assigns medicine as a child element of MedPack
+    public function parentTemplate()
+    {
+        return $this->belongsTo(PackTemplate::class);
+    }
+
 }

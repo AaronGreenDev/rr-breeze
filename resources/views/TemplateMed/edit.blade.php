@@ -43,7 +43,7 @@
                 <input type="number" name="temp_quantity" placeholder="Quantity" value='{{  $template_med->temp_quantity  }}' id="temp_quantity" autocomplete="temp_quantity" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
-             
+             <!--
               <div class="col-span-6 sm:col-span-3">
                   <label for="template_id" class="block text-sm font-medium text-gray-700">Template</label>
                   <select id="template_id" name="template_id" placeholder="{{ $template_med->template_id }}">
@@ -58,7 +58,7 @@
                   </select>
               </div>
 
-              
+              -->
 
             </div>
           </div>
@@ -66,10 +66,28 @@
             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Save
             </button>
-          </div>
-        </div>
+         
+       
 
     </form>
+
+    <form action="{{ route('template_med.destroy', $template_med->id) }}" method="POST">
+                                           <div>
+                                            
+                                          
+                                            @csrf
+                                            @method('DELETE')
+
+
+                                            
+                                                <button type="submit" title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                    Delete
+                                                </button>
+                                            </div>
+    
+                                        </form>
+                                        </div>
+                                        </div>
   </div>
 </div>    
 @endsection

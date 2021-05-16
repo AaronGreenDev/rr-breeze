@@ -83,6 +83,11 @@
                                                     
                                                    
                                                 </div>  
+                                                <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                            <a href="{{ route('pack_template.edit', $pack_template->id) }}">
+                                                                                Edit
+                                                                            </a>
+                                                                        </button>
                                                     
                                                 </label>
                                                 

@@ -76,4 +76,12 @@ class TemplateMedController extends Controller
             ->with('success', 'Medicine updated successfully');
     }
 
+    public function destroy(TemplateMed $template_med)
+    {
+         
+        $template_med->delete();
+
+        return redirect()->route('pack_template.index')->with('success','You have successfully removed a Medication from the Template');
+    }
+
 }
