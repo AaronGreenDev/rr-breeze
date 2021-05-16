@@ -41,8 +41,7 @@ class PackTemplateController extends Controller
         $request->validate([
             //'id' => 'required',
             'template_name' => 'required',
-            'contains' => 'required',
-            'quantity' => 'required',
+            
         ]);
 
         PackTemplate::create($request->all());

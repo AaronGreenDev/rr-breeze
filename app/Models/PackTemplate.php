@@ -15,4 +15,10 @@ class PackTemplate extends Model
         'contains',
         'quantity',
     ];
+
+
+    public function children()
+    {
+        return $this->hasMany('App\Models\TemplateMed','template_id');
+    }
 }

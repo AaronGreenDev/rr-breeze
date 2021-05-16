@@ -68,16 +68,7 @@
                     <input type="text" name="template_name" id="template_name" autocomplete="template_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
 
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="contains" class="block text-sm font-medium text-gray-700">Medications</label>
-                    <input type="text" name="contains" id="contains" autocomplete="contains" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                  </div>
-
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
-                    <input type="number" name="quantity" id="quantity" autocomplete="quantity" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                  </div>
-
+            
                   
                 </div>
               </div>
@@ -162,7 +153,122 @@
                 </div>    
             </div>
         </div>
-    </div>        
+    </div>  
+
+
+     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        
+                            @foreach ($pack_templates as $pack_template)
+
+                            <div class="w-full md:w-4/5 mx-auto p-8">
+                                        <p></p>
+                                        <div class="shadow-md">
+                                            <div class="tab w-full overflow-hidden border-t">
+                                           
+                                                <input class="absolute opacity-0 " id="tab-multi-{{ $pack_template->id }} " type="checkbox" name="{{ $pack_template->id }} tabs">
+                                                
+                                                <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack_template->id }} ">
+                                                <div class="mt-1 flex justify-between items-center"> 
+                                                    <div class="order-">
+                                                        <strong>{{ $pack_template->template_name }}</strong>
+                                                    </div>
+                                                    
+                                                   
+                                                </div>  
+                                                    
+                                                </label>
+                                                
+                                                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                                                    <table>
+                                                    @if($pack_template->children)
+                                                  
+                                                        <thead class="bg-gray-50">
+                                                            <tr>
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('temp_med', 'Name')
+                                                                </th>
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('temp_quantity', 'Qty')
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        @foreach ($pack_template->children as $template_med)
+                                                            <tr>                                                         
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <div class="text-sm text-gray-500">
+                                                                            {{ $template_med->temp_med }}
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">             
+                                                                    <div class="text-sm text-gray-500">
+                                                                            {{ $template_med->temp_quantity }}
+                                                                    </div>
+                                                                </td>
+                                                                
+
+                                                                <td>
+                                                                
+                                                                        <button title="view" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                            <a href="{{ route('pack_template.index', $pack_template->id) }}" title="show">
+                                                                                View
+                                                                            </a>
+                                                                        </button>
+                                                                        <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                            <a href="{{ route('pack_template.index', $pack_template->id) }}">
+                                                                                Edit
+                                                                            </a>
+                                                                        </button>
+                                                                        @csrf
+                                                                        @method('DELETE')
+
+
+                                                                   
+                                                                </td>
+
+
+                                                            </td>
+                                                    
+                                                        @endforeach
+                                                    @endif
+                                                  
+                                                    </table>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                  
+                                    
+
+                                
+
+                                    
+                                       
+                                        
+                                          
+                                            @csrf
+                                            @method('DELETE')
+
+
+                                 
+                                    
+                                    
+
+                            
+                         
+
+                                    
+                            @endforeach
+
+                                       
+                        
+
+                            
+                   
+                
+            </div>
+        </div>
+    </div>              
 </div>                     
 
 @endsection
