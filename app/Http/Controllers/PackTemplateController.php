@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PackTemplate;
 
 class PackTemplateController extends Controller
 {
@@ -10,7 +11,7 @@ class PackTemplateController extends Controller
     {
         $pack_templates = PackTemplate::get();
 
-        return view('templates.index')->with([
+        return view('packTemplates.index')->with([
             'pack_templates' => $pack_templates
         ]);
     }
@@ -24,7 +25,7 @@ class PackTemplateController extends Controller
     {
         $pack_templates = PackTemplate::get();
 
-        return view('templates.create')->with([
+        return view('packTemplates.create')->with([
             'pack_templates' => $pack_templates
             ]);
     }
@@ -40,13 +41,13 @@ class PackTemplateController extends Controller
         $request->validate([
             //'id' => 'required',
             'template_name' => 'required',
-            'contents' => 'required',
+            'contains' => 'required',
             'quantity' => 'required',
         ]);
 
         PackTemplate::create($request->all());
 
-        return redirect()->route('templates.index')
+        return redirect()->route('pack_template.index')
             ->with('success', 'Pack Template added successfully.');
     }
 
@@ -73,7 +74,7 @@ class PackTemplateController extends Controller
 
        $pack_template = PackTemplate::findOrFail($id);
 
-       return view('templates.edit', compact('pack_template'));
+       return view('packTemplates.edit', compact('pack_template'));
     }
 
     /**
@@ -91,7 +92,7 @@ class PackTemplateController extends Controller
         ]);
         $pack_template->update($request->all());
 
-        return redirect()->route('template.index')
+        return redirect()->route('packTemplates.index')
             ->with('success', 'Template updated successfully');
     }
 
@@ -106,6 +107,6 @@ class PackTemplateController extends Controller
          
         $pack_template->delete();
 
-        return redirect()->route('templates.index')->with('success','You have successfully removed a Pack Template');
+        return redirect()->route('packTemplates.index')->with('success','You have successfully removed a Pack Template');
     }
 }
