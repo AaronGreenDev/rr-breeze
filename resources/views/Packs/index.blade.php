@@ -56,7 +56,7 @@
                                 
                                 @foreach ($packTemplates as $pack_template)
 
-                                    <div class="w-full md:w-1/2 justify-1 mx-auto p-8">
+                                    <div class="w-full md:w-full justify-1 mx-auto p-8">
                                                                     
                                         <div class="shadow-md">
                                             <div class="tab w-full overflow-hidden border-t">
@@ -98,9 +98,13 @@
                                                                                 {{ $template_med->temp_quantity }}
                                                                             </div>
                                                                         </td>
-                                                                                                    
-
-                                                                
+                                                                        <td class="px-6 py-4 whitespace-nowrap">                      
+                                                                            <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                                <a href="">
+                                                                                    Add
+                                                                                </a>
+                                                                            </button>
+                                                                        </td>
 
 
                                                             
@@ -127,7 +131,7 @@
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
                                 @foreach ($packs as $pack)
 
-                                    <div class="w-1/2 md:w-1/2 justify-1 mx-auto p-8">
+                                    <div class="w-full md:w-full justify-1 mx-auto p-8">
                                         <div class="shadow-md">
                                             <div class="tab w-full overflow-hidden border-t">
                                         
@@ -175,19 +179,6 @@
                                                                             {{ $med->batch_no }}
                                                                     </div>
                                                                 </td>
-                                                                
-
-                                                                <td>
-                                                                
-                                                                    
-                                                                        @csrf
-                                                                        @method('DELETE')
-
-
-                                                                
-                                                                </td>
-
-
                                                             </td>
                                                     
                                                         @endforeach
