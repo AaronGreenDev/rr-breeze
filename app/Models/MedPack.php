@@ -31,4 +31,9 @@ class MedPack extends Model
 
      //Changes primary key from default = id
      protected $primaryKey = 'pack_id';
+
+     public function children()
+     {
+         return $this->hasMany('App\Models\Medicine','pack_id');
+     }
 }

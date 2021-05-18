@@ -19,6 +19,7 @@ class Medicine extends Model
     protected $fillable =[
         'med_name',
         'category_id',
+        'pack_id',
         'batch_no',
         'expiry_date',
         'quantity',
@@ -106,6 +107,11 @@ class Medicine extends Model
           
         return $med->status;
             
+    }
+
+    public function template()
+    {
+        return $this->belongsTo('App\Models\MedPack','pack_id');
     }
 
    

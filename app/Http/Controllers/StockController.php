@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Medicine;
 use App\Models\MedCategory;
 use App\Models\MedName;
+use App\Models\MedPack;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
