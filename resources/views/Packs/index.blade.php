@@ -124,7 +124,7 @@
                             </div>
                         </div>    
                         <div>
-                                            
+                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
                                 @foreach ($packs as $pack)
 
                                     <div class="w-1/2 md:w-1/2 justify-1 mx-auto p-8">
@@ -200,6 +200,7 @@
                 
                                 @endforeach
                             </div>  
+                        </div>    
                     </div>          
                 </div>
                                             
