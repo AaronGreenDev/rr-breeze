@@ -143,6 +143,11 @@
                                                 </div>  
                                             
                                                 </label>
+                                                <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                    <a href="{{ route('packs.edit', $pack->pack_id) }}">
+                                                        Edit
+                                                    </a>
+                                                </button>
                                                 
                                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                                                     <table>
