@@ -25,7 +25,7 @@
             </button>
         </div> 
 
-    <form action="{{ route('packs.update', $packs->pack_id) }}" method="POST">
+    <form action="{{ route('packs.update', $pack->pack_id) }}" method="POST">
         @csrf
         @method('PUT')
 

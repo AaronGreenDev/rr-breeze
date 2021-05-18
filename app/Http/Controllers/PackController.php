@@ -78,7 +78,7 @@ class PackController extends Controller
     {
         $pack = MedPack::findOrFail($id);
 
-        return view('edit', compact('pack'));
+        return view('packs.edit', compact('pack'));
     }
 
     /**
@@ -88,9 +88,16 @@ class PackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, MedPack $pack)
     {
-        //
+        $request->validate([
+            'pack_id' => 'required',
+        
+        ]);
+        $pack->update($request->all());
+
+        return redirect()->route('packs.index')
+            ->with('success', 'Medicine updated successfully');
     }
 
     /**
