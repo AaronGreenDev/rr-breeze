@@ -28,4 +28,7 @@ class MedPack extends Model
         'pack_location',
 
     ];
+
+     //Changes primary key from default = id
+     protected $primaryKey = 'pack_id';
 }

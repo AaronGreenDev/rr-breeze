@@ -18,8 +18,8 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('standardPack')" :active="request()->routeIs('standardPack')">
-                        {{ __('Standard Pack') }}
+                    <x-nav-link :href="route('packs.index')" :active="request()->routeIs('packs')">
+                        {{ __('Restock Pack') }}
                     </x-nav-link>
                 </div>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\MedCategoryController;
 use App\Http\Controllers\MedNameController;
 use App\Http\Controllers\PackTemplateController;
 use App\Http\Controllers\TemplateMedController;
+use App\Http\Controllers\PackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::get('/stockList', function () {
 
 Route::resource('meds', StockController::class)->middleware(['auth']);
 
-Route::resource('medPack','PackController');
+Route::resource('packs','PackController');
 
 Route::resource('med_name',MedNameController::class)->middleware(['auth']);
 
@@ -53,6 +54,8 @@ Route::resource('med_category', MedCategoryController::class)->middleware(['auth
 Route::resource('pack_template', PackTemplateController::class)->middleware(['auth']);
 
 Route::resource('template_med', TemplateMedController::class)->middleware(['auth']);
+
+Route::resource('packs', PackController::class)->middleware(['auth']);
 
 Route::get('meds/index', 'StockController@indexSorting');
 

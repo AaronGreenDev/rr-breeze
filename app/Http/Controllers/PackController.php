@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\MedPack;
+use App\Models\TemplateMed;
+use App\Models\PackTemplate;
+
 
 class PackController extends Controller
 {
@@ -14,9 +18,12 @@ class PackController extends Controller
      */
     public function index()
     {
-        $packs = MedPack::latest()->paginate(5);
+        $packs = MedPack::get();
+        $template_meds = TemplateMed::get();
+        $pack_templates = PackTemplate::get();
 
-        return view('packs.index', compact('packs'))->with('i', (request()->input('page',1)- 1)*5);
+
+        return view('packs.index', ['packs'=> $packs])->withTemplateMeds($template_meds)->withPackTemplates($pack_templates);;
     }
 
     /**
@@ -56,9 +63,9 @@ class PackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        return view('packs.show', compact('pack'));
+        //
     }
 
     /**
