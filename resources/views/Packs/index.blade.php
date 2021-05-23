@@ -53,6 +53,17 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                    <select  id="template_dropdown"  onchange="templateSelection()" name="template_dropdown" autocomplete="template_dropdown" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        @foreach ($packTemplates as $pack_template)
+                                            <option id="template" value="{{ $pack_template->pack_id }}"> {{ $pack_template->template_name }}</option>
+                        
+                            
+                            
+                                        @endforeach
+
+                                    </select>
+
+                        
                                 
                                 @foreach ($packTemplates as $pack_template)
 
@@ -65,8 +76,9 @@
                                                                             
                                                     <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack_template->id }} ">
                                                         <div class="mt-1 flex justify-between items-center"> 
-                                                            <div class="order-">
+                                                            <div class="template_name" id="templateName">
                                                                 <strong>{{ $pack_template->template_name }}</strong>
+                                                                <p id="p1">title</p>
                                                             </div>               
                                                         </div>  
                                                                         
@@ -202,6 +214,20 @@
                                             
             </div>                    
             </div>   
+
+            <script>
+                function templateSelection() 
+                {
+                    //Get Value from dropdown
+                    var x = document.getElementById("template_dropdown").value;
+                    
+                    document.getElementById("p1").innerHTML = "You selected: " + x;
+
+                    
+                }
+
+
+            </script>
 
         @endsection
 
