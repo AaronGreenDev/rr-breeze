@@ -55,7 +55,7 @@
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                     <select  id="template_dropdown"  onchange="templateSelection()" name="template_dropdown" autocomplete="template_dropdown" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         @foreach ($packTemplates as $pack_template)
-                                            <option id="template" value="{{ $pack_template->pack_id }}"> {{ $pack_template->template_name }}</option>
+                                            <option id="{{$pack_template->id}}" value="{{ $pack_template->id }}"> {{ $pack_template->template_name }}</option>
                         
                             
                             
@@ -219,11 +219,11 @@
                 function templateSelection() 
                 {
                     //Get Value from dropdown
-                    var x = document.getElementById("template_dropdown").value;
+                    var x = document.getElementById('template_dropdown').value;
                     
                     document.getElementById("p1").innerHTML = "You selected: " + x;
 
-                    
+                  
                 }
 
 
