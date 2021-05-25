@@ -65,9 +65,11 @@ $(document).ready(function(){
 
 
                     </div>  
-
+                   
                     <div class="flex">
-                        <div>
+
+                     <!-- First Column Start -->
+                        <div flex>
                           
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <div id="container">
@@ -160,21 +162,26 @@ $(document).ready(function(){
                             </div>
 
                         
-                        </div>    
+                       
+                        <!--First Column End -->
 
-                        <div class="flex h-16 p-3">
+                        <!--Second Column Start -->
+                        <div class=" h-16 p-3">
 
-                        <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                            <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
                                 <a href="{{ route('admin') }}">
                                     Restock Pack
                                 </a>
                             </button>
 
                         </div>
+                        <!--Second Column End -->
 
-                        <!--Pack Side-->
-                        <div>
-                        <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
+                        <!--Third Column Start -->
+                        <div class="flex">
+                        
+                            <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">  
+                                                  
                                 @foreach ($packs as $pack)
 
                                     <div class="w-full md:w-full justify-1 mx-auto p-8">
@@ -199,7 +206,7 @@ $(document).ready(function(){
                                                     </a>
                                                 </button>
                                                 
-                                                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                                                <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                                                     <table>
                                                     @if($pack->children)
                                                 
@@ -231,65 +238,27 @@ $(document).ready(function(){
                                                     @endif
                                                 
                                                     </table>
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
             
             
-                                    </div>
+                          
 
                 
                                 @endforeach
                             </div>  
                         </div>    
-                    </div>          
+                   
                 </div>
                                             
-            </div>                    
-            </div>   
+            </div>
+        </div>
 
-            <style>
-            .container {
-  overflow: hidden;
-}
+    </div>    
 
-.filterDiv {
-  float: left;
-  background-color: #2196F3;
-  color: #ffffff;
-  width: 100px;
-  line-height: 100px;
-  text-align: center;
-  margin: 2px;
-  display: none; /* Hidden by default */
-}
-
-/* The "show" class is added to the filtered elements */
-.show {
-  display: block;
-}
-
-/* Style the buttons */
-.btn {
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-/* Add a light grey background on mouse-over */
-.btn:hover {
-  background-color: #ddd;
-}
-
-/* Add a dark background to the active button */
-.btn.active {
-  background-color: #666;
-  color: white;
-}
-            </style>
+            
 
             <script>
 

@@ -45,7 +45,8 @@ Route::get('/stockList', function () {
 })->middleware(['auth'])->name('stockList');
 
 
-Route::get('packs/allPacks',[PackController::class, 'allPacks']);
+
+Route::get('packs/allPacks', array('as' => 'allPacks', 'uses' => 'PackController@allPacks'));
 
 
 Route::get('packs/addMedToPack',[PackController::class, 'addMedToPack']);
