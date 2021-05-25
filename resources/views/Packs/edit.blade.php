@@ -45,6 +45,20 @@
               Save
             </button>
           </div>
+          <form action="{{ route('medPack.destroy', $pack->id) }}" method="POST">
+                                            
+                                                @csrf
+                                                @method('DELETE')
+
+
+                                                <div class="p-1">  
+                                                    <button type="submit" title="delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                        Delete
+                                                    </button>
+                                                </div>
+
+                                        
+                                            </form> 
         </div>
 
     </form>

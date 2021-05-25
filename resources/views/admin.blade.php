@@ -69,9 +69,16 @@
                         <a href="{{ route('pack_template.index') }}"> Edit Templates</a>
                         </button>
                     </div>
+                   
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-6">
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                         <a href="{{ route('packs.create') }}"> Create Pack</a>
+                        </button>
+                    </div>
+
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-6">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                        <a href="{{ route('locations.create') }}"> Edit Locations</a>
                         </button>
                     </div>
                     

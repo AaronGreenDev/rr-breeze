@@ -36,7 +36,12 @@ class PackController extends Controller
      */
     public function create()
     {
-        return view('packs.create');
+        $packs = MedPack::get();
+        $template_meds = TemplateMed::get();
+        $pack_templates = PackTemplate::get();
+
+
+        return view('packs.create', ['packs'=> $packs])->withTemplateMeds($template_meds)->withPackTemplates($pack_templates);;
     }
 
     /**
@@ -60,16 +65,7 @@ class PackController extends Controller
         return redirect()->route('packs.index')->with('success', 'Pack Created Successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        //
-    }
+  
 
     /**
      * Show the form for editing the specified resource.
@@ -109,9 +105,12 @@ class PackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(MedPack $pack)
     {
-        //
+         
+        $pack->delete();
+
+        return redirect()->route('packs.index')->with('success','You have successfully removed a Pack ');
     }
 
     public function allPacks()
@@ -121,8 +120,42 @@ class PackController extends Controller
         $pack_templates = PackTemplate::get();
 
 
-        return view('packs.allPacks', ['packs'=> $packs])->withTemplateMeds($template_meds)->withPackTemplates($pack_templates);;
+        return view('packs.allPacks', ['packs'=> $packs])->withTemplateMeds($template_meds)->withPackTemplates($pack_templates);
 
        
     }
+
+
+    public function show($id)
+    {
+        //return view('meds.show', compact('med'));
+
+          //return view('medication.show', [
+          //  'meds' => Medicine::findOrFail($med)
+         //       ]);
+
+       $medPack = MedPack::findOrFail($id);
+       
+
+       return view('packs.show', compact('medPack'));
+    }
+
+    public function addMedToPack ($id)
+    {
+
+       $med = Medicine::findOrFail($id);
+
+       $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
+
+         
+        return view ('packs.addMedToPack',compact('med'))->withMedCategories($med_categories);
+    }
+
+    public function selectLocation()
+    {
+        $meds = Medicine::get();
+        return view('packs.selectLocation')->withMeds($meds);
+    }
+
+
 }

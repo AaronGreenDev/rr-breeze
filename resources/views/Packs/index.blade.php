@@ -2,6 +2,22 @@
 
 @section('content')
 
+<script>
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
+
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Pack Templates') }}
@@ -58,7 +74,7 @@
                                     <select  id="template_dropdown"  onchange="templateSelection()" name="template_dropdown" autocomplete="template_dropdown" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         @foreach ($packTemplates as $pack_template)
 
-                                            <option id="{{$pack_template->id}}" value="{{ $pack_template->id }}"> {{ $pack_template->template_name }}</option>
+                                            <option id="dropdown_select" value="{{ $pack_template->id }}"> {{ $pack_template->template_name }}</option>
                         
                             
                             
@@ -68,10 +84,11 @@
 
                                 </div>
                                 
-                                <div id="dropdown_content">
-                                @foreach ($packTemplates as $pack_template)
+                              
+                                    @foreach ($packTemplates as $pack_template)
 
                                 <!-- Display template by dropdown selection id-->
+                                <div id="$pack_template->id" class="box {{$pack_template->id}} ">
 
                                     <div class="flex w-full md:w-full justify-1 mx-auto p-8">
                                                                     
@@ -117,11 +134,8 @@
                                                                             </div>
                                                                         </td>
                                                                         <td class="px-6 py-4 whitespace-nowrap">                      
-                                                                            <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                                                <a href="">
-                                                                                    Add
-                                                                                </a>
-                                                                            </button>
+                                                                        
+                                                                           
                                                                         </td>
 
 
@@ -136,7 +150,7 @@
                                         </div>
                                     </div>
                                                             
-                                                            
+                                </div>                            
                                                                 
 
                                                                 

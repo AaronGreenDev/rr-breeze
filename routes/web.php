@@ -7,6 +7,7 @@ use App\Http\Controllers\MedNameController;
 use App\Http\Controllers\PackTemplateController;
 use App\Http\Controllers\TemplateMedController;
 use App\Http\Controllers\PackController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,11 @@ Route::get('/stockList', function () {
 Route::get('packs/allPacks',[PackController::class, 'allPacks']);
 
 
+Route::get('packs/addMedToPack',[PackController::class, 'addMedToPack']);
+
+Route::get('packs/selectLocation',[PackController::class, 'selectLocation']);
+
+
 Route::resource('meds', StockController::class)->middleware(['auth']);
 
 Route::resource('packs','PackController');
@@ -60,6 +66,8 @@ Route::resource('pack_template', PackTemplateController::class)->middleware(['au
 Route::resource('template_med', TemplateMedController::class)->middleware(['auth']);
 
 Route::resource('packs', PackController::class)->middleware(['auth']);
+
+Route::resource('locations', LocationController::class)->middleware(['auth']);
 
 Route::get('meds/index', 'StockController@indexSorting');
 
