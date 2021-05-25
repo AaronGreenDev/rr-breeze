@@ -66,7 +66,8 @@
                       </div>
                       
                       <div class="col-span-6 sm:col-span-3">
-                        <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
+                        <label for="" id="warningLabel" class="block text-sm font-medium text-gray-700"></label>
+                        <label for="quantity" id="quantityLabel" class="block text-sm font-medium text-gray-700">Quantity</label>
                         <input type="number" name="quantity" id="quantity" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                       </div>
 
@@ -109,8 +110,22 @@
       </div>
     </div>
 
-   
-   
+<script>
+    document.getElementById('quantity').addEventListener('change', function() {
+  //console.log('You selected: ', this.value);
+  if(this.value < 1)
+  {
+    console.log('Quantity invalid:', this.value);
+    var label = document.createElement("label");
+    var node = document.createTextNode("warning");
+    label.appendChild(node);
+
+    var element = document.getElementById("quantityLabel");
+    var child = document.getElementById("warningLabel");
+    element.insertBefore(label,child);
+  }
+});
+</script>   
 
 @endsection
 

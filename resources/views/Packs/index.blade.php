@@ -50,11 +50,14 @@
 
                     </div>  
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="flex">
                         <div>
+                          
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <div id="container">
                                     <select  id="template_dropdown"  onchange="templateSelection()" name="template_dropdown" autocomplete="template_dropdown" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         @foreach ($packTemplates as $pack_template)
+
                                             <option id="{{$pack_template->id}}" value="{{ $pack_template->id }}"> {{ $pack_template->template_name }}</option>
                         
                             
@@ -63,16 +66,19 @@
 
                                     </select>
 
-                        
+                                </div>
                                 
+                                <div id="dropdown_content">
                                 @foreach ($packTemplates as $pack_template)
 
-                                    <div class="w-full md:w-full justify-1 mx-auto p-8">
+                                <!-- Display template by dropdown selection id-->
+
+                                    <div class="flex w-full md:w-full justify-1 mx-auto p-8">
                                                                     
                                         <div class="shadow-md">
                                             <div class="tab w-full overflow-hidden border-t">
                                                                     
-                                                <input class="absolute opacity-0 " id="tab-multi-{{ $pack_template->id }} " type="checkbox" name="{{ $pack_template->id }} tabs">
+                                                <input class="absolute opacity-0 " id="tab-multi-{{ $pack_template->id }}" type="checkbox" name="{{ $pack_template->id }} tabs">
                                                                             
                                                     <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack_template->id }} ">
                                                         <div class="mt-1 flex justify-between items-center"> 
@@ -135,12 +141,26 @@
 
                                                                 
                                 @endforeach
-            
+                            </div>
                         
                             </div>
+
+                        
                         </div>    
+
+                        <div class="flex h-16 p-3">
+
+                        <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                <a href="{{ route('admin') }}">
+                                    Restock Pack
+                                </a>
+                            </button>
+
+                        </div>
+
+                        <!--Pack Side-->
                         <div>
-                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
+                        <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
                                 @foreach ($packs as $pack)
 
                                     <div class="w-full md:w-full justify-1 mx-auto p-8">
@@ -215,14 +235,109 @@
             </div>                    
             </div>   
 
+            <style>
+            .container {
+  overflow: hidden;
+}
+
+.filterDiv {
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+            </style>
+
             <script>
+
+                var x = document.getElementById('template_dropdown').value; 
+                    
+                document.getElementById("p1").innerHTML = "You selected: " + x;
+                    
                 function templateSelection() 
                 {
                     //Get Value from dropdown
-                    var x = document.getElementById('template_dropdown').value;
                     
-                    document.getElementById("p1").innerHTML = "You selected: " + x;
+                    filterSelection("all")
+                    function filterSelection(c) {
+                        var x, i;
+                        x = document.getElementsByClassName("filterDiv");
+                        if (c == "all") c = "";
+                    
+                        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+                        for (i = 0; i < x.length; i++) 
+                        {
+                            w3RemoveClass(x[i], "show");
+                            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+                        }
+                }
 
+                    // Show filtered elements
+                    function addClass(element, name) {
+                        var i, arr1, arr2;
+                        arr1 = element.className.split(" ");
+                        arr2 = name.split(" ");
+                        for (i = 0; i < arr2.length; i++) 
+                        {
+                            if (arr1.indexOf(arr2[i]) == -1) 
+                            {
+                                element.className += " " + arr2[i];
+                            }
+                        }
+                    }
+
+                    // Hide elements that are not selected
+                    function removeClass(element, name) {
+                    var i, arr1, arr2;
+                    arr1 = element.className.split(" ");
+                    arr2 = name.split(" ");
+                    for (i = 0; i < arr2.length; i++) {
+                        while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+                        }
+                    }
+                    element.className = arr1.join(" ");
+                    }
+
+                    // Add active class to the current control button (highlight it)
+                    var btnContainer = document.getElementById("myBtnContainer");
+                    var btns = btnContainer.getElementsByClassName("btn");
+                    for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener("click", function() {
+                        var current = document.getElementsByClassName("active");
+                        current[0].className = current[0].className.replace(" active", "");
+                        this.className += " active";
+                    });
+                    }
                   
                 }
 

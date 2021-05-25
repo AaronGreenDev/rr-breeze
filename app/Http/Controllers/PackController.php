@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\MedPack;
 use App\Models\TemplateMed;
 use App\Models\PackTemplate;
+use App\Models\MedCategory;
+use App\Models\Medicine;
+
 
 
 class PackController extends Controller
@@ -109,5 +112,17 @@ class PackController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function allPacks()
+    {
+        $packs = MedPack::get();
+        $template_meds = TemplateMed::get();
+        $pack_templates = PackTemplate::get();
+
+
+        return view('packs.allPacks', ['packs'=> $packs])->withTemplateMeds($template_meds)->withPackTemplates($pack_templates);;
+
+       
     }
 }

@@ -43,6 +43,10 @@ Route::get('/stockList', function () {
     return view('stockList');
 })->middleware(['auth'])->name('stockList');
 
+
+Route::get('packs/allPacks',[PackController::class, 'allPacks']);
+
+
 Route::resource('meds', StockController::class)->middleware(['auth']);
 
 Route::resource('packs','PackController');
