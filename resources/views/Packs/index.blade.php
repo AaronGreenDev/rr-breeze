@@ -40,6 +40,8 @@
                         </div>
                     @endif
 
+                    
+
                     <div class="py-3">
                             <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
                                 <a href="{{ route('admin') }}">
@@ -56,6 +58,51 @@
 
 
                     </div>  
+
+                    <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
+
+            <ul class="block w-11/12  mx-auto" x-data="{selected:null}">
+                <li class="flex align-center flex-col">
+                    <h4 @click="selected !== 0 ? selected = 0 : selected = null"
+                    class="cursor-pointer px-5 py-3 bg-indigo-300 text-white text-center inline-block hover:opacity-75 hover:shadow hover:-mb-3 rounded-t"> Filters</h4>
+                    <div x-show="selected == 0" class="border py-4 px-2">
+                        <div class="relative">
+                            <div class="mt-5 md:mt-1 md:col-span-2">
+                             <div class="flex flex-row ...">
+                                  <div class="p-1">
+                                    <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                        <option>Standard</option>
+                                        <option>Controlled</option>
+                                    </select>
+                                  </div>
+                                  <div class="p-1">
+                                    <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                        <option>In Date</option>
+                                        <option>Expired</option>
+                                    </select>
+                                  </div>
+                                  <div class="p-1">
+                                    <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                        <option>Expires: </option>
+                                        <option>Soonest</option>
+                                        <option>Last</option>
+                                    </select>
+                                  </div>
+                                  <div class="p-1">  
+                                    <div class="p-2">  
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded content-end">
+                                            Filter
+                                        </button>
+                                    </div>
+                                  </div>    
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <br>
 
 
                     <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    

@@ -13,8 +13,8 @@
 
 
             <!-- Column Content -->
-            <div class="p-5">
-            <div class="bg-pink-500 shadow overflow-hidden sm:rounded-lg">
+            <div class="p-5 ">
+            <div class="bg-pink-500 shadow overflow-hidden sm:rounded-lg ">
                 <div class="px-4 py-5 sm:px-6">
                         <h3 class="text-lg leading-6 font-medium text-white">
                             Refill Pack
