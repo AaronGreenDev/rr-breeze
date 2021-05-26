@@ -134,10 +134,17 @@ class PackController extends Controller
           //  'meds' => Medicine::findOrFail($med)
          //       ]);
 
-       $medPack = MedPack::findOrFail($id);
+        
+        $template_meds = TemplateMed::get();
+        $pack_templates = PackTemplate::get();
+
+
+        
+
+       $pack = MedPack::findOrFail($id);
        
 
-       return view('packs.show', compact('medPack'));
+       return view('packs.show', compact('pack'))->withTemplateMeds($template_meds)->withPackTemplates($pack_templates);
     }
 
     public function addMedToPack ($id)

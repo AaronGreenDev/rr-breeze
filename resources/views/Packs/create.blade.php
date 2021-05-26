@@ -94,72 +94,7 @@
           </form>
         </div>
       
-        <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
-          @foreach ($packs as $pack)
-            <div class="w-full md:w-full justify-1 mx-auto p-8">
-                <div class="shadow-md">
-                   <div class="tab w-full overflow-hidden border-t">                       
-                      <input class="absolute opacity-0 " id="tab-multi-{{ $pack->id }} " type="checkbox" name="{{ $pack->id }} tabs">                         
-                        <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack->id }} ">
-                          <div class="mt-1 flex justify-between items-center"> 
-                           <div class="order-">
-                            <strong>Pack: {{ $pack->pack_id }}</strong>
-                           </div>                                                                                                    
-                          </div>  
-                        </label>
-                        <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                          <a href="{{ route('packs.edit', $pack->pack_id) }}">
-                            Edit
-                          </a>
-                        </button>
-                        <button title="view" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                          <a href="{{ route('packs.show', $pack->pack_id) }}" title="show">
-                            View
-                          </a>
-                       </button>
-                                                
-                                                
-                      <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <table>
-                          @if($pack->children)
-                            <thead class="bg-gray-50">
-                              <tr>
-                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                  @sortablelink('temp_med', 'Name')
-                                </th>
-                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                  @sortablelink('temp_quantity', 'Qty')
-                                </th>
-                              </tr>
-                            </thead>
-                            @foreach ($pack->children as $med)
-                              <tr>                                                         
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                  <div class="text-sm text-gray-500">
-                                    {{ $med->med_name }}
-                                  </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">             
-                                  <div class="text-sm text-gray-500">
-                                    {{ $med->batch_no }}
-                                  </div>
-                                </td>
-                              </td>
-                                                    
-                            @endforeach
-                         @endif
-                                                
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              
-
-                
-            @endforeach
-          
-        </div>
+        
       </div>  
     </div>
   </div>                      

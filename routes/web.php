@@ -8,6 +8,7 @@ use App\Http\Controllers\PackTemplateController;
 use App\Http\Controllers\TemplateMedController;
 use App\Http\Controllers\PackController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\RefillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,8 @@ Route::resource('template_med', TemplateMedController::class)->middleware(['auth
 Route::resource('packs', PackController::class)->middleware(['auth']);
 
 Route::resource('locations', LocationController::class)->middleware(['auth']);
+
+Route::resource('refill', RefillController::class)->middleware(['auth']);
 
 Route::get('meds/index', 'StockController@indexSorting');
 

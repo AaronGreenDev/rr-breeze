@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
-
 @section('content')
-<div class="py-12">
-
-
-
 
 <script>
 $(document).ready(function(){
@@ -108,7 +103,7 @@ $(document).ready(function(){
                                                         <div class="mt-1 flex justify-between items-center"> 
                                                             <div class="template_name" id="templateName">
                                                                 <strong>{{ $pack_template->template_name }}</strong>
-                                                              
+                                                                <p id="p1">title</p>
                                                             </div>               
                                                         </div>  
                                                                         
@@ -183,91 +178,155 @@ $(document).ready(function(){
                         <!--Second Column End -->
 
                         <!--Third Column Start -->
-                    
-                        <div flex>
-                        <div class=" overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                    <table class="min-w-full divide-y divide-gray-200">
-                                        <thead class="bg-gray-50">
-                                            <tr>
-                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    ID
-                                                </th>
-                                            
-                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Location
-                                                </th>
-                                                
-                                                <th scope="col" class="relative px-6 py-3">
-                                                    <span class="sr-only">Edit</span>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200">                                    
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="text-sm font-medium text-gray-900">
-                                                            {{ $pack->pack_id }}
-                                                        </div>
-                                                    </div>
-                                                </td>
+                        <div class="flex">
+                        
+                            <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">  
+                                                  
+                                @foreach ($packs as $pack)
 
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                            {{ $pack->pack_location }}
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                
-                                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                                        <table>
-                                            @if($pack->children)                                            
-                                                <thead class="bg-gray-50">
-                                                    <tr>
-                                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                                            @sortablelink('temp_med', 'Name')
-                                                        </th>
-                                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                                            @sortablelink('temp_quantity', 'Qty')
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                @foreach ($pack->children as $med)
-                                                    <tr>                                                         
-                                                        <td class="px-6 py-4 whitespace-nowrap">
-                                                            <div class="text-sm text-gray-500">
-                                                                {{ $med->med_name }}
-                                                            </div>
-                                                        </td>
-                                                        <td class="px-6 py-4 whitespace-nowrap">             
-                                                            <div class="text-sm text-gray-500">
-                                                                {{ $med->batch_no }}
-                                                            </div>
-                                                        </td>
-                                                    </td>
-                                                    
-                                                @endforeach
-                                            @endif
+                                    <div class="w-full md:w-full justify-1 mx-auto p-8">
+                                        <div class="shadow-md">
+                                            <div class="tab w-full overflow-hidden border-t">
+                                        
+                                                <input class="absolute opacity-0 " id="tab-multi-{{ $pack_template->id }} " type="checkbox" name="{{ $pack_template->id }} tabs">
                                                 
-                                        </table>
+                                                <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack_template->id }} ">
+                                                <div class="mt-1 flex justify-between items-center"> 
+                                                    <div class="order-">
+                                                        <strong>Pack: {{ $pack->pack_id }}</strong>
+                                                    </div>
+                                                    
+                                                
+                                                </div>  
+                                            
+                                                </label>
+                                                <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                    <a href="{{ route('packs.edit', $pack->pack_id) }}">
+                                                        Edit
+                                                    </a>
+                                                </button>
+                                                
+                                                <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                                                    <table>
+                                                    @if($pack->children)
+                                                
+                                                        <thead class="bg-gray-50">
+                                                            <tr>
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('temp_med', 'Name')
+                                                                </th>
+                                                                <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                    @sortablelink('temp_quantity', 'Qty')
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        @foreach ($pack->children as $med)
+                                                            <tr>                                                         
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <div class="text-sm text-gray-500">
+                                                                            {{ $med->med_name }}
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">             
+                                                                    <div class="text-sm text-gray-500">
+                                                                            {{ $med->batch_no }}
+                                                                    </div>
+                                                                </td>
+                                                            </td>
+                                                    
+                                                        @endforeach
+                                                    @endif
+                                                
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>    
-                        </div>
-                        </div>
-                    </div>
-                </div>        
+            
+            
+                          
+
+                
+                                @endforeach
+                            </div>  
+                        </div>    
+                   
+                </div>
+                                            
             </div>
         </div>
-    </div>
 
-</div>
+    </div>    
+
+            
+
+            <script>
+
+                var x = document.getElementById('template_dropdown').value; 
+                    
+                document.getElementById("p1").innerHTML = "You selected: " + x;
+                    
+                function templateSelection() 
+                {
+                    //Get Value from dropdown
+                    
+                    filterSelection("all")
+                    function filterSelection(c) {
+                        var x, i;
+                        x = document.getElementsByClassName("filterDiv");
+                        if (c == "all") c = "";
+                    
+                        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+                        for (i = 0; i < x.length; i++) 
+                        {
+                            w3RemoveClass(x[i], "show");
+                            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+                        }
+                }
+
+                    // Show filtered elements
+                    function addClass(element, name) {
+                        var i, arr1, arr2;
+                        arr1 = element.className.split(" ");
+                        arr2 = name.split(" ");
+                        for (i = 0; i < arr2.length; i++) 
+                        {
+                            if (arr1.indexOf(arr2[i]) == -1) 
+                            {
+                                element.className += " " + arr2[i];
+                            }
+                        }
+                    }
+
+                    // Hide elements that are not selected
+                    function removeClass(element, name) {
+                    var i, arr1, arr2;
+                    arr1 = element.className.split(" ");
+                    arr2 = name.split(" ");
+                    for (i = 0; i < arr2.length; i++) {
+                        while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+                        }
+                    }
+                    element.className = arr1.join(" ");
+                    }
+
+                    // Add active class to the current control button (highlight it)
+                    var btnContainer = document.getElementById("myBtnContainer");
+                    var btns = btnContainer.getElementsByClassName("btn");
+                    for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener("click", function() {
+                        var current = document.getElementsByClassName("active");
+                        current[0].className = current[0].className.replace(" active", "");
+                        this.className += " active";
+                    });
+                    }
+                  
+                }
 
 
+            </script>
 
-@endsection
+        @endsection
+
+                                        
