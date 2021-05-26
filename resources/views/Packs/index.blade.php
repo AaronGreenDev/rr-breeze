@@ -75,13 +75,13 @@
                                             </label>
                                             <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
                                                 <a href="{{ route('packs.edit', $pack->pack_id) }}">
-                                                    Refill
+                                                    View
                                                 </a>
                                             </button>
 
                                             <button title="view" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
                                                  <a href="{{ route('packs.show', $pack->pack_id) }}" title="show">
-                                                    View
+                                                    Refill
                                                 </a>
                                             </button>
                                                 
