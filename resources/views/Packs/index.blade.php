@@ -108,10 +108,11 @@
                     <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
                         @foreach ($packs as $pack)
 
-                            <div id="searchDiv" class="w-full md:w-full justify-1 mx-auto p-8">
+                            <div class="w-full md:w-full justify-1 mx-auto p-8">
                                 <div class="shadow-md">
                                     <div class="tab w-full overflow-hidden border-t">                                        
-                                        <input class="absolute opacity-0 " id="tab-multi-{{ $pack->id }} " type="checkbox" name="{{ $pack->id }} tabs">                                                
+                                        <input class="absolute opacity-0 " id="tab-multi-{{ $pack->id }} " type="checkbox" name="{{ $pack->id }} tabs"> 
+                                            <div id="searchDiv" >                                              
                                             <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack->id }} ">
                                                 <div class="mt-1 flex justify-between items-center"> 
                                                     <div class="order-">
@@ -120,17 +121,8 @@
                                                 </div>  
                                             
                                             </label>
-                                            <button title="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                <a href="{{ route('packs.edit', $pack->pack_id) }}">
-                                                    View
-                                                </a>
-                                            </button>
-
-                                            <button title="view" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                 <a href="{{ route('packs.show', $pack->pack_id) }}" title="show">
-                                                    Refill
-                                                </a>
-                                            </button>
+                                            </div>
+                                            
                                                 
                                                 
                                             
@@ -138,12 +130,12 @@
                                     </div>
             
             
-                                    </div>
+                                </div>
 
                 
                         @endforeach
-                            </div>  
-                        </div>    
+                    </div>  
+        </div>    
 <script>
 $(document).ready(function(){
   $("#searchInput").on("keyup", function() {
