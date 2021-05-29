@@ -59,7 +59,7 @@
 
                     </div>  
 
-                    <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
+                    <input id="searchInput" class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
 
             <ul class="block w-11/12  mx-auto" x-data="{selected:null}">
                 <li class="flex align-center flex-col">
@@ -108,7 +108,7 @@
                     <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
                         @foreach ($packs as $pack)
 
-                            <div class="w-full md:w-full justify-1 mx-auto p-8">
+                            <div id="searchDiv" class="w-full md:w-full justify-1 mx-auto p-8">
                                 <div class="shadow-md">
                                     <div class="tab w-full overflow-hidden border-t">                                        
                                         <input class="absolute opacity-0 " id="tab-multi-{{ $pack->id }} " type="checkbox" name="{{ $pack->id }} tabs">                                                
@@ -144,5 +144,15 @@
                         @endforeach
                             </div>  
                         </div>    
+<script>
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#searchDiv *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
                         @endsection

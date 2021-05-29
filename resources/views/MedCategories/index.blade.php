@@ -106,7 +106,7 @@
            
            </br>
 
-           <input class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
+           <input id="searchInput" class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl p-6 shadow-lg" type="search" placeholder="Search...">
 
 <ul class="block w-11/12  mx-auto" x-data="{selected:null}">
     <li class="flex align-center flex-col">
@@ -214,6 +214,7 @@
                                                             </tr>
                                                         </thead>
                                                         @foreach ($med_category->meds as $med)
+                                                        <tbody id="medsTable">
                                                             <tr>                                                         
                                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                                     <div class="text-sm text-gray-500">
@@ -286,7 +287,7 @@
                                                     
                                                         @endforeach
                                                     @endif
-                                                  
+                                                    </tbody>
                                                     </table>
                                                     </div>
                                             </div>
@@ -342,6 +343,18 @@
           }
           };
       }
+
+     
+      
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#medsTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
    </script>
 
 
