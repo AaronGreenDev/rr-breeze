@@ -45,7 +45,8 @@
               Save
             </button>
           </div>
-          <form action="{{ route('medPack.destroy', $pack->id) }}" method="POST">
+    </form>      
+          <form action="{{ route('packs.destroy', $pack) }}" method="POST">
                                             
                                                 @csrf
                                                 @method('DELETE')
