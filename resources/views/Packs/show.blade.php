@@ -2,26 +2,12 @@
 
 
 @section('content')
-<div class="py-12">
 
 
 
 
-<script>
-$(document).ready(function(){
-    $("select").change(function(){
-        $(this).find("option:selected").each(function(){
-            var optionValue = $(this).attr("value");
-            if(optionValue){
-                $(".box").not("." + optionValue).hide();
-                $("." + optionValue).show();
-            } else{
-                $(".box").hide();
-            }
-        });
-    }).change();
-});
-</script>
+
+
 
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -30,7 +16,7 @@ $(document).ready(function(){
 </x-slot>
 
     
-    <div class="py-12">
+    <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
 
@@ -46,7 +32,7 @@ $(document).ready(function(){
             @endif
 
 
-            <div class="py-12">
+          
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
                     @if ($errors->any())
@@ -66,9 +52,6 @@ $(document).ready(function(){
                                     Back
                                 </a>
                             </button>
-                        
-
-
                     </div>  
                    
                     <div class="flex content-center ">
@@ -278,14 +261,27 @@ $(document).ready(function(){
                                 </div>
                             </div>    
                         </div>
-                        </div>
                     </div>
-                </div>        
-            </div>
+                </div>
+            </div>        
         </div>
     </div>
 
-</div>
+    <script>
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
 
 
 

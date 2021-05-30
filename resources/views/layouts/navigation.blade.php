@@ -24,12 +24,6 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('controlledPack')" :active="request()->routeIs('controlledPack')">
-                        {{ __('Controlled Pack') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('med_category.index')" :active="request()->routeIs('med_category.index')">
                         {{ __('Stock List') }}
                     </x-nav-link>
@@ -91,19 +85,6 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('standardPack')" :active="request()->routeIs('standardPack')">
-            {{ __('Standard Pack') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('controlledPack')" :active="request()->routeIs('controlledPack')">
-            {{ __('Controlled Pack') }}
             </x-responsive-nav-link>
         </div>
 

@@ -65,7 +65,7 @@
                     <label for="pack_id" class="block text-sm font-medium text-gray-700">Pack Number</label>
                     <input type="text" name="pack_id" id="pack_id" autocomplete="pack_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
-
+                <!--
                   <div class="col-span-6 sm:col-span-3">
                     <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                     <input type="text" name="status" id="status" autocomplete="status" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -82,7 +82,7 @@
                   </div>
 
             
-                  
+                  -->
                 </div>
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
