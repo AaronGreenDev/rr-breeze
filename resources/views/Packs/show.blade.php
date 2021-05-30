@@ -209,7 +209,7 @@ $(document).ready(function(){
                                                 </th>
                                             
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Location
+                                                {{ $pack->pack_id }}
                                                 </th>
                                                 
                                                 <th scope="col" class="relative px-6 py-3">
@@ -217,25 +217,7 @@ $(document).ready(function(){
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200">                                    
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="text-sm font-medium text-gray-900">
-                                                            {{ $pack->pack_id }}
-                                                        </div>
-                                                    </div>
-                                                </td>
-
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                            {{ $pack->pack_location }}
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                        
                                     </table>                                
                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                                         <table>
@@ -243,10 +225,19 @@ $(document).ready(function(){
                                                 <thead class="bg-gray-50">
                                                     <tr>
                                                         <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                                            @sortablelink('temp_med', 'Name')
+                                                            @sortablelink('med_name', 'Name')
                                                         </th>
                                                         <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
-                                                            @sortablelink('temp_quantity', 'Qty')
+                                                            @sortablelink('batch_no', 'Batch')
+                                                        </th>
+                                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                            @sortablelink('expiry_date', 'Expiry')
+                                                        </th>
+                                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                            @sortablelink('quantity', 'Quantity')
+                                                        </th>
+                                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                            @sortablelink('status', 'Status')
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -260,6 +251,21 @@ $(document).ready(function(){
                                                         <td class="px-6 py-4 whitespace-nowrap">             
                                                             <div class="text-sm text-gray-500">
                                                                 {{ $med->batch_no }}
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">             
+                                                            <div class="text-sm text-gray-500">
+                                                                {{ $med->expiry_date }}
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">             
+                                                            <div class="text-sm text-gray-500">
+                                                                {{ $med->quantity }}
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap">             
+                                                            <div class="text-sm text-gray-500">
+                                                                {{ $med->status }}
                                                             </div>
                                                         </td>
                                                     </td>
