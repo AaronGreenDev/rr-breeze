@@ -50,7 +50,7 @@ Route::get('/stockList', function () {
 Route::get('packs/allPacks', array('as' => 'allPacks', 'uses' => 'PackController@allPacks'));
 
 
-Route::get('packs/addMedToPack',[PackController::class, 'addMedToPack']);
+Route::get('meds/addMedToPack',[StockController::class, 'addMedToPack']);
 
 Route::get('packs/selectLocation',[PackController::class, 'selectLocation']);
 

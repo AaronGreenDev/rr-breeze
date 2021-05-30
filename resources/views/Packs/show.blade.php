@@ -140,9 +140,12 @@ $(document).ready(function(){
                                                                                 {{ $template_med->temp_quantity }}
                                                                             </div>
                                                                         </td>
-                                                                        <td class="px-6 py-4 whitespace-nowrap">                      
-                                                                        
-                                                                           
+                                                                        <td class="px-6 py-4 whitespace-nowrap">                                                                                              
+                                                                            <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                                                <a href="{{ route('admin') }}">
+                                                                                    Add
+                                                                                </a>
+                                                                            </button>
                                                                         </td>
 
 
@@ -192,7 +195,7 @@ $(document).ready(function(){
                                         <thead class="bg-gray-50">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    ID
+                                                    Pack Number
                                                 </th>
                                             
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">

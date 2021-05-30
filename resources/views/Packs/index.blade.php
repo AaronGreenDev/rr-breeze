@@ -70,19 +70,19 @@
                             <div class="mt-5 md:mt-1 md:col-span-2">
                              <div class="flex flex-row ...">
                                   <div class="p-1">
-                                    <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                    <select id="typeSelect" class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                                         <option>Standard</option>
                                         <option>Controlled</option>
                                     </select>
                                   </div>
                                   <div class="p-1">
-                                    <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                    <select id="statusSelect" class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                                         <option>In Date</option>
                                         <option>Expired</option>
                                     </select>
                                   </div>
                                   <div class="p-1">
-                                    <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                    <select id="expiresSelect" class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                                         <option>Expires: </option>
                                         <option>Soonest</option>
                                         <option>Last</option>
@@ -107,7 +107,6 @@
 
                     <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
                         @foreach ($packs as $pack)
-
                             <div class="w-full md:w-full justify-1 mx-auto p-8">
                                 <div class="shadow-md">
                                     <div class="tab w-full overflow-hidden border-t">                                        
@@ -115,8 +114,10 @@
                                             <div id="searchDiv" >                                              
                                             <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack->id }} ">
                                                 <div class="mt-1 flex justify-between items-center"> 
-                                                    <div class="order-">
-                                                        <strong>Pack: {{ $pack->pack_id }}</strong>
+                                                    <div class="order">
+                                                        <strong><a href="{{ route('packs.show', $pack) }}" title="show">Pack: {{ $pack->pack_id }}</a></strong>
+                                                        
+                                                        <p>id="status">{{$pack->status}}</p>
                                                     </div>                                                                                                    
                                                 </div>  
                                             
@@ -146,5 +147,21 @@ $(document).ready(function(){
   });
 });
 </script>
+
+
+<script>
+$(document).ready(function(){
+    $("#statusSelect").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            $("#searchDiv *").filter(function() {
+      $(this).toggle($(this).text().indexOf(optionValue) > -1)
+    });
+        });
+    }).change();
+});
+</script>
+
+
 
                         @endsection

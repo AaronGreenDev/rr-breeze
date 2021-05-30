@@ -35,4 +35,9 @@ class TemplateMed extends Model
         return $this->belongsTo(PackTemplate::class);
     }
 
+    public function children()
+    {
+        return $this->hasMany('App\Models\Medicine','id');
+    }
+
 }

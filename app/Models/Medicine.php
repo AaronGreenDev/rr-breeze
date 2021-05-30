@@ -20,6 +20,7 @@ class Medicine extends Model
         'med_name',
         'category_id',
         'pack_id',
+        'template_med_id',
         'batch_no',
         'expiry_date',
         'quantity',
@@ -75,6 +76,11 @@ class Medicine extends Model
     public function medpack()
     {
         return $this->belongsTo(MedPack::class);
+    }
+
+    public function templateMed()
+    {
+        return $this->belongsTo(TemplateMed::class);
     }
 
 

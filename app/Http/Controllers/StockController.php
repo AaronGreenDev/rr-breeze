@@ -178,6 +178,17 @@ class StockController extends Controller
           }
     }
 
+    public function addMedToPack($id)
+    {
+       // return view('meds.edit', compact('med'));
+
+       $med = Medicine::findOrFail($id);
+
+       $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
+
+        return view('medication.edit', compact('med'))->withMedCategories($med_categories);
+    }
+
 
 
 }
