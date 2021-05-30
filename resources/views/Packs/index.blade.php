@@ -105,48 +105,46 @@
             <br>
 
 
-                    <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">                    
+                    <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">  
+                                      
                         @foreach ($packs as $pack)
-                            <div class="w-full md:w-full justify-1 mx-auto p-8">
+                        <ul id="myList"> 
+                        <li>
+                            <div class="w-full md:w-full justify-1 mx-auto p-4">
                                 <div class="shadow-md">
+                                
                                     <div class="tab w-full overflow-hidden border-t">                                        
                                         <input class="absolute opacity-0 " id="tab-multi-{{ $pack->id }} " type="checkbox" name="{{ $pack->id }} tabs"> 
-                                            <div id="searchDiv" >                                              
+                                              
+                                                                                
                                             <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack->id }} ">
-                                                <div class="mt-1 flex justify-between items-center"> 
+                                              
                                                     <div class="order">
                                                         <strong><a href="{{ route('packs.show', $pack) }}" title="show">Pack: {{ $pack->pack_id }}</a></strong>
                                                         
-                                                        <p>id="status">{{$pack->status}}</p>
+                                                        <p id="status">Status: {{$pack->status}}</p>
                                                     </div>                                                                                                    
-                                                </div>  
+                                                
                                             
                                             </label>
+                                           
                                             </div>
-                                            
+                                           
                                                 
                                                 
                                             
-                                        </div>
+                                        
                                     </div>
             
-            
+                                    
                                 </div>
 
-                
+                                </li>
+                                </ul>  
                         @endforeach
+                      
                     </div>  
-        </div>    
-<script>
-$(document).ready(function(){
-  $("#searchInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#searchDiv *").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+        </div>  
 
 
 <script>
@@ -159,6 +157,17 @@ $(document).ready(function(){
     });
         });
     }).change();
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });
 </script>
 
