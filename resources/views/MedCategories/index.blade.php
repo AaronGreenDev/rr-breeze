@@ -160,9 +160,10 @@
 
                 
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        
-                            @foreach ($med_categories as $med_category)
 
+                            @foreach ($med_categories as $med_category)
+                            <ul id="myList">
+                            <li>
                             <div class="w-full md:w-4/5 mx-auto p-8">
                                         <div class="shadow-md">
                                             <div class="tab w-full overflow-hidden border-t">
@@ -311,8 +312,8 @@
                                     
 
                             
-                         
-
+                            </li>
+                            </ul>
                                     
                             @endforeach
 
@@ -348,7 +349,7 @@
 $(document).ready(function(){
   $("#searchInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $("#medsTable tr").filter(function() {
+    $("#myList li").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
