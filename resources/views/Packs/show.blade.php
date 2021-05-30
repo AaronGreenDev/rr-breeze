@@ -71,10 +71,10 @@ $(document).ready(function(){
 
                     </div>  
                    
-                    <div class="flex">
+                    <div class="flex content-center ">
 
                      <!-- First Column Start -->
-                        <div flex>
+                        <div class="flex-1 pr-6">
                           
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <div id="container">
@@ -183,8 +183,9 @@ $(document).ready(function(){
                         <!--First Column End -->
 
                         <!--Second Column Start -->
-                        <div class=" h-16 p-3">
-
+                        <div class=" flex-none  h-16  p-3 sm:px-6 lg:px-6">
+                            <br>
+                            <br>
                             <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
                                 <a href="{{ route('admin') }}">
                                     Restock Pack
@@ -196,9 +197,9 @@ $(document).ready(function(){
 
                         <!--Third Column Start -->
                     
-                        <div flex>
-                        <div class=" overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="flex-1">
+                        
+                            <div class="py-2 sm:px-6 lg:px-8">
                                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                     <table class="min-w-full divide-y divide-gray-200">
                                         <thead class="bg-gray-50">

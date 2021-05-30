@@ -149,14 +149,15 @@
 
 <script>
 $(document).ready(function(){
-    $("#statusSelect").change(function(){
+    $("#statusSelect").onchange(function(){
         $(this).find("option:selected").each(function(){
             var optionValue = $(this).attr("value");
-            $("#searchDiv *").filter(function() {
+            $("#myList li").filter(function() {
       $(this).toggle($(this).text().indexOf(optionValue) > -1)
     });
+    });
         });
-    }).change();
+    });
 });
 </script>
 
