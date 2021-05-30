@@ -54,9 +54,7 @@ class PackController extends Controller
     {
         $request->validate([
             'pack_id' => 'required',
-            'status' => 'required',
-            'assigned_to' => 'required',
-            'pack_location' => 'required',
+           
 
         ]);   
 
