@@ -120,6 +120,9 @@ $(document).ready(function(){
                                                                                     
                                                                 <thead class="bg-gray-50">
                                                                     <tr>
+                                                                    <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
+                                                                            @sortablelink('id', 'Id')
+                                                                        </th>
                                                                         <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
                                                                             @sortablelink('temp_med', 'Name')
                                                                         </th>
@@ -129,7 +132,12 @@ $(document).ready(function(){
                                                                     </tr>
                                                                 </thead>
                                                                 @foreach ($pack_template->children as $template_med)
-                                                                    <tr>                                                         
+                                                                    <tr>
+                                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                                            <div class="text-sm text-gray-500">
+                                                                                {{ $template_med->id }}
+                                                                            </div>
+                                                                        </td>                                                         
                                                                         <td class="px-6 py-4 whitespace-nowrap">
                                                                             <div class="text-sm text-gray-500">
                                                                                 {{ $template_med->temp_med }}
@@ -142,10 +150,11 @@ $(document).ready(function(){
                                                                         </td>
                                                                         <td class="px-6 py-4 whitespace-nowrap">                                                                                              
                                                                             <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                                                <a href="{{ route('admin') }}">
-                                                                                    Add
+                                                                                <a href="{{ route('template_med.show', $template_med->id) }}">
+                                                                                    View
                                                                                 </a>
                                                                             </button>
+                                                                            
                                                                         </td>
 
 

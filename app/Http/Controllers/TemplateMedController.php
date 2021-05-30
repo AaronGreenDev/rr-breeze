@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TemplateMed;
 use App\Models\MedName;
 use App\Models\PackTemplate;
+use App\Models\Medicine;
 
 class TemplateMedController extends Controller
 {
@@ -40,6 +41,19 @@ class TemplateMedController extends Controller
 
         return redirect()->route('pack_template.index')
             ->with('success', 'Medicine added successfully.');
+    }
+    public function show($id)
+    {
+        //return view('meds.show', compact('med'));
+
+          //return view('medication.show', [
+          //  'meds' => Medicine::findOrFail($med)
+         //       ]);
+
+       $template_med = TemplateMed::findOrFail($id);
+     
+
+       return view('templateMed.show', compact('template_med'))->with('children');
     }
 
     public function edit($id)
@@ -82,6 +96,12 @@ class TemplateMedController extends Controller
         $template_med->delete();
 
         return redirect()->route('pack_template.index')->with('success','You have successfully removed a Medication from the Template');
+    }
+
+    public function findMedFromTemplate(TemplateMed $template_med)
+    {
+        //Find medicine where template_med_id == $template_med->id
+        $meds = Medicine::findOrFail($template_med->id);
     }
 
 }

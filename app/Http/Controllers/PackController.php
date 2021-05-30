@@ -147,12 +147,33 @@ class PackController extends Controller
        return view('packs.show', compact('pack'))->withTemplateMeds($template_meds)->withPackTemplates($pack_templates);
     }
 
-    public function addMedToPack ($id)
+    public function addMedToPack ($packId, $templateMedId, $templateMedQuantity)
     {
+        //Find template med 
+       $templateMed = TemplateMed::findOrFail($templateMedId);
 
-       $med = Medicine::findOrFail($id);
+       //Find the pack thats getting filled 
+       $pack = MedPack::findOrFail($packId);
 
-       $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
+       //Pull each child medicine from the template 
+       foreach ($templateMed.children() as $child)
+       {
+            //Order medicines by expiry date
+
+
+
+            //If desired quantity is available remove from stock 
+
+
+            //else calculate remaining required and remove from next batch
+
+
+            //if next batch not available cancel order
+
+
+            //Create new medicine object with desired quantity if there is enough stock
+           
+       }
 
          
         return view ('packs.addMedToPack',compact('med'))->withMedCategories($med_categories);

@@ -37,7 +37,7 @@ class TemplateMed extends Model
 
     public function children()
     {
-        return $this->hasMany('App\Models\Medicine','id');
+        return $this->hasMany('App\Models\Medicine','template_med_id');
     }
 
 }

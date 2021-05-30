@@ -189,8 +189,7 @@
                                                 
                                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                                                     <table>
-                                                    @if($med_category->meds)
-                                                  
+                                                    @if($med_category->meds)                                                  
                                                         <thead class="bg-gray-50">
                                                             <tr>
                                                                 <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500  tracking-wider">
@@ -242,13 +241,13 @@
                                                                     </div>
                                                                 </td>
                                                                 @if($med->check_status($med) === 'Expired')
-                                                                    {
+                                                                    
                                                                         <td class="px-6 py-4 whitespace-nowrap">
                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
                                                                                 {{ $med->check_status($med) }}
                                                                             </span>
                                                                         </td>
-                                                                    }
+                                                                    
                                                                 @else 
                                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-500 text-white">
