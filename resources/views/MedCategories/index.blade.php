@@ -124,11 +124,12 @@
                         </select>
                       </div>
                       <div class="p-1">
-                        <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                            <option>In Date</option>
-                            <option>Expired</option>
-                        </select>
-                      </div>
+                            <select id="statusSelect" class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                <option value="">Select Status</option>
+                                <option value="1">In Date</option>
+                                <option value="0">Expired</option>
+                            </select>
+                        </div>
                       <div class="p-1">
                         <select class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                             <option>Expires: </option>
@@ -357,7 +358,35 @@ $(document).ready(function(){
 
    </script>
 
-   
+<script>
+$(document).ready(function(){
+    $("#statusSelect").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                console.log(optionValue);
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } 
+            else
+            {
+                $(".box").show();
+            }
+        });
+    }).change();
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 
 @endsection

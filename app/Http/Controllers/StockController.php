@@ -114,7 +114,9 @@ class StockController extends Controller
 
        $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
 
-        return view('medication.edit', compact('med'))->withMedCategories($med_categories);
+       $med_names = MedName::get();
+
+        return view('medication.edit', compact('med'))->withMedCategories($med_categories)->withMedNames($med_names);
     }
 
 
@@ -189,7 +191,7 @@ class StockController extends Controller
         return view('medication.edit', compact('med'))->withMedCategories($med_categories);
     }
 
-    
+
 
 
 

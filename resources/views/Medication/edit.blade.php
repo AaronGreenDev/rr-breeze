@@ -38,9 +38,20 @@
               </div>-->
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="med_name" class="block text-sm font-medium text-gray-700">Medication Name</label>
-                <input type="text" name="med_name" id="med_name" value="{{ $med->med_name }}"  autocomplete="med_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-              </div>
+                      <label for="med_name" class="block text-sm font-medium text-gray-700">Medication Name</label>
+                      <select id="med_name" value="{{ $med->med_name }}" name="med_name" autocomplete="med_name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option value="{{ $med->med_name,'selected' }}">{{$med->med_name}}</option>
+                        @foreach ($medNames as $med_name)
+                          
+                          <option value="{{ $med_name->name }}"> {{ $med_name->name }}</option>
+                      
+                        
+                        
+                        @endforeach
+
+                      </select>
+
+              </div>  
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="batch_no" class="block text-sm font-medium text-gray-700">Batch Number</label>
