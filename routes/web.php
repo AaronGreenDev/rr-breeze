@@ -82,3 +82,5 @@ Route::get('/admin', function () {
 Route::get('med_category/index-datatables', 'MedCategoryController@indexDatatables');
 
 require __DIR__.'/auth.php';
+
+Route::get('template_med/{id}/{pack_id}', 'TemplateMedController@show');

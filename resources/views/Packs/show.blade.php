@@ -116,7 +116,7 @@
                                                                 </thead>
                                                                 @foreach ($pack_template->children as $template_med)
                                                                     <tr>
-                                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                                        <td class="px-6 py-4 whitespace-nowrap">
                                                                             <div class="text-sm text-gray-500">
                                                                                 {{ $template_med->id }}
                                                                             </div>
@@ -133,7 +133,7 @@
                                                                         </td>
                                                                         <td class="px-6 py-4 whitespace-nowrap">                                                                                              
                                                                             <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                                                                <a href="{{ route('template_med.show', $template_med->id) }}">
+                                                                                <a href="{{ route('template_med.show', [$template_med->id, $pack->pack_id]) }}">
                                                                                     View
                                                                                 </a>
                                                                             </button>

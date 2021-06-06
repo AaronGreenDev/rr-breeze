@@ -109,63 +109,89 @@
                                       
                         @foreach ($packs as $pack)
                         <ul id="myList"> 
-                        <li>
+                        <li class="box" >
                             <div class="w-full md:w-full justify-1 mx-auto p-4">
                                 <div class="shadow-md">
                                 
                                     <div class="tab w-full overflow-hidden border-t">                                        
-                                        <input class="absolute opacity-0 " id="tab-multi-{{ $pack->id }} " type="checkbox" name="{{ $pack->id }} tabs"> 
-                                              
-                                                                                
-                                            <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack->id }} ">
-                                              
+                                        <input class="absolute opacity-0 " id="tab-multi-{{ $pack->id }} " type="checkbox" name="{{ $pack->id }} tabs">                                                                                                                               
+                                            <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack->id }} ">                                              
                                                     <div class="order">
                                                         <strong><a href="{{ route('packs.show', $pack) }}" title="show">Pack: {{ $pack->pack_id }}</a></strong>
                                                         
-                                                        <p id="status">Status: {{$pack->status}}</p>
-                                                    </div>                                                                                                    
-                                                
-                                            
-                                            </label>
-                                           
-                                            </div>
-                                           
-                                                
-                                                
-                                            
-                                        
-                                    </div>
-            
-                                    
-                                </div>
-
-                                </li>
-                                </ul>  
+                                                        <p id="status">{{$pack->status}}</p>
+                                                    </div>                                                                                                                                                                                                
+                                            </label>                                           
+                                    </div>                                                                                                                                                                           
+                                </div>                                                
+                            </div>
+                        </li>
+                        </ul>  
                         @endforeach
                       
                     </div>  
         </div>  
 
-
+<!--Filter parameters 
 <script>
 $(document).ready(function(){
     $("#statusSelect").onchange(function(){
+        //find value of selected dropdown 
         $(this).find("option:selected").each(function(){
             var optionValue = $(this).attr("value");
+            console.log(optionValue);
+
+            //toggle list items if equal to value
             $("#myList li").filter(function() {
       $(this).toggle($(this).text().indexOf(optionValue) > -1)
     });
     });
         });
     });
+</script>
+-->
+
+<!--Filter parameters 
+<script>
+$(document).ready(function(){
+    $("statusSelect").change(function()
+    {
+        $(this).find("option:selected").each(function()
+        {
+            var optionValue = $(this).attr("value");
+
+            $("#myList li").filter(function() 
+            {
+                $(this).toggle($(this).text().indexOf(optionValue) > -1)
+            });
+        }).change();
+    });
+});    
+</script>
+-->
+<script>
+$(document).ready(function(){
+    $("#statusSelect").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").children().not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } 
+        });
+    }).change();
 });
 </script>
 
+<!--Keyword search -->
 <script>
-$(document).ready(function(){
-  $("#searchInput").on("keyup", function() {
+$(document).ready(function()
+{
+  $("#searchInput").on("keyup", function() 
+  {
     var value = $(this).val().toLowerCase();
-    $("#myList li").filter(function() {
+    $("#myList li").filter(function() 
+    {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });

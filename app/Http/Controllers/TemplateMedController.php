@@ -7,6 +7,7 @@ use App\Models\TemplateMed;
 use App\Models\MedName;
 use App\Models\PackTemplate;
 use App\Models\Medicine;
+use App\Models\MedPack;
 
 class TemplateMedController extends Controller
 {
@@ -49,7 +50,7 @@ class TemplateMedController extends Controller
           //return view('medication.show', [
           //  'meds' => Medicine::findOrFail($med)
          //       ]);
-
+       $packs = MedPack::get(); 
        $template_med = TemplateMed::findOrFail($id);
      
 
