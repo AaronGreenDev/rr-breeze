@@ -120,5 +120,7 @@ class Medicine extends Model
         return $this->belongsTo('App\Models\MedPack','pack_id');
     }
 
+    
+
    
 }

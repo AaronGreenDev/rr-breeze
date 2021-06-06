@@ -189,6 +189,8 @@ class StockController extends Controller
         return view('medication.edit', compact('med'))->withMedCategories($med_categories);
     }
 
+    
+
 
 
 }
