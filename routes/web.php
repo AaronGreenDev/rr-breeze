@@ -84,3 +84,5 @@ Route::get('med_category/index-datatables', 'MedCategoryController@indexDatatabl
 require __DIR__.'/auth.php';
 
 Route::get('template_med/{id}/{pack_id}', 'TemplateMedController@show');
+
+Route::get('packs.filter', 'PackController@filter');

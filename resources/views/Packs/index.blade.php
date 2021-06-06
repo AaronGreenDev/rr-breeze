@@ -77,8 +77,9 @@
                                   </div>
                                   <div class="p-1">
                                     <select id="statusSelect" class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                                        <option>In Date</option>
-                                        <option>Expired</option>
+                                        <option value="">Select Status</option>
+                                        <option value="1">In Date</option>
+                                        <option value="0">Expired</option>
                                     </select>
                                   </div>
                                   <div class="p-1">
@@ -109,7 +110,7 @@
                                       
                         @foreach ($packs as $pack)
                         <ul id="myList"> 
-                        <li class="box" >
+                        <li class="box {{ $pack->status }}" >
                             <div class="w-full md:w-full justify-1 mx-auto p-4">
                                 <div class="shadow-md">
                                 
@@ -118,8 +119,16 @@
                                             <label class="block p-6 leading-normal cursor-pointer" for="tab-multi-{{ $pack->id }} ">                                              
                                                     <div class="order">
                                                         <strong><a href="{{ route('packs.show', $pack) }}" title="show">Pack: {{ $pack->pack_id }}</a></strong>
+                                                        @if($pack->status == 1)
+                                                            <p id="status">In Date</p>
                                                         
-                                                        <p id="status">{{$pack->status}}</p>
+                                                        @else
+                                                        
+                                                            <p id="status">Expired</p>
+                                                        
+
+                                                        @endif
+                                                        
                                                     </div>                                                                                                                                                                                                
                                             </label>                                           
                                     </div>                                                                                                                                                                           
@@ -130,6 +139,14 @@
                         @endforeach
                       
                     </div>  
+
+
+                 
+
+
+               
+
+
         </div>  
 
 <!--Filter parameters 
@@ -175,9 +192,14 @@ $(document).ready(function(){
         $(this).find("option:selected").each(function(){
             var optionValue = $(this).attr("value");
             if(optionValue){
-                $(".box").children().not("." + optionValue).hide();
+                console.log(optionValue);
+                $(".box").not("." + optionValue).hide();
                 $("." + optionValue).show();
             } 
+            else
+            {
+                $(".box").show();
+            }
         });
     }).change();
 });

@@ -183,5 +183,16 @@ class PackController extends Controller
         return view('packs.selectLocation')->withMeds($meds);
     }
 
+    public function filter(Request $request) {
+    
+        $packs = MedPack::where( function($query) use($request){
+                         return $request->status ?
+                                $query->from('med_packs')->where('status',$request->status) : '';
+                    })
+                    ->get();
+    
+        return view('packs.index',compact('packs'));
+    
+    }
 
 }

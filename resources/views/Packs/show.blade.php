@@ -195,9 +195,11 @@
                                                 {{ $pack->pack_id }}
                                                 </th>
                                                 
-                                                <th scope="col" class="relative px-6 py-3">
-                                                    <span class="sr-only">Edit</span>
-                                                </th>
+                                                <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
+                                                    <a href="{{ route('packs.edit', $pack->pack_id) }}">
+                                                        Edit
+                                                    </a>
+                                                </button>
                                             </tr>
                                         </thead>
                                         
