@@ -61,20 +61,8 @@
 
                       <div class="col-span-6 sm:col-span-3">
                    
-                        <label for="pack_id" class="block text-sm font-medium text-gray-700">Pack Id</label>
-                        <input type="text" name="pack_id" id="pack_id" autocomplete="pack_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-
-                      <div class="col-span-6 sm:col-span-3">
-                   
-                        <label for="template_med_id" class="block text-sm font-medium text-gray-700">template_med_id</label>
-                        <input type="text" name="template_med_id" id="template_med_id" autocomplete="template_med_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-
-                      <div class="col-span-6 sm:col-span-3">
-                   
                         <label for="expiry_date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
-                        <input type="month" name="expiry_date" id="expiry_date" autocomplete="expiry_date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input type="date" name="expiry_date" id="expiry_date" autocomplete="expiry_date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                       </div>
                       
                       <div class="col-span-6 sm:col-span-3">
@@ -103,13 +91,42 @@
                           @endforeach
 
                       </select>
-                    </div>
-                  </div>
+                  
                   <br>
                 <br>
                 <br>
-                <br>
+                
+
+                <div class="col-span-6 sm:col-span-3">
+                        <label for="pack_id" class="block text-sm font-medium text-gray-700">Pack (Testing)</label>
+                        <select id="pack_id" name="pack_id" autocomplete="pack_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value=""> None</option>
+                          @foreach ($medPacks as $pack)
+                            <option value="{{ $pack->pack_id }}"> {{ $pack->pack_id }}</option>
+                          @endforeach
+
+                        </select>
+                      </div>  
+
+                
+
+                      <div class="col-span-6 sm:col-span-3">
+                        <label for="template_med_id" class="block text-sm font-medium text-gray-700">Template Medication Associated (Testing)</label>
+                        <select id="template_med_id" name="template_med_id" autocomplete="template_med_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value=""> None</option>
+                          @foreach ($templateMeds as $templateMed)
+                            <option value="{{ $templateMed->id }}"> {{ $templateMed->temp_med}}</option>
+                          @endforeach
+
+                        </select>
+                      </div>  
                 </div>
+
+
+                </div>
+                  </div>
+
+                
                 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button type="submit"  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

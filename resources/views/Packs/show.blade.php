@@ -48,7 +48,7 @@
 
                     <div class="py-3">
                             <button title="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 p-3 rounded">
-                                <a href="{{ route('admin') }}">
+                                <a href="{{ route('packs.index') }}">
                                     Back
                                 </a>
                             </button>

@@ -5,6 +5,7 @@ use App\Models\Medicine;
 use App\Models\MedCategory;
 use App\Models\MedName;
 use App\Models\MedPack;
+use App\Models\TemplateMed;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -45,7 +46,13 @@ class StockController extends Controller
     {
         $med_categories = MedCategory::with('children')->whereNull('parent_id')->get();
         $med_names = MedName::get();
-        return view('medication.create')->withMedCategories($med_categories)->withMedNames($med_names);
+        $packs = MedPack::get();
+        $templateMeds = TemplateMed::get();
+        return view('medication.create')
+        ->withMedCategories($med_categories)
+        ->withMedNames($med_names)
+        ->withMedPacks($packs)
+        ->withTemplateMeds($templateMeds);
     }
 
 
@@ -116,7 +123,12 @@ class StockController extends Controller
 
        $med_names = MedName::get();
 
-        return view('medication.edit', compact('med'))->withMedCategories($med_categories)->withMedNames($med_names);
+       $packs = MedPack::get();
+
+        return view('medication.edit', compact('med'))
+        ->withMedCategories($med_categories)
+        ->withMedNames($med_names)
+        ->withMedPacks($packs);
     }
 
 

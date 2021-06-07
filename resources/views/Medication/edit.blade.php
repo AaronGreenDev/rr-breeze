@@ -97,6 +97,18 @@
                   </select>
               </div>
 
+              <div class="col-span-6 sm:col-span-3">
+                  <label for="pack" class="block text-sm font-medium text-gray-700">Pack</label>
+                  <select id="pack_id" name="pack_id" placeholder="{{ $med->pack_id }}">
+                  <option value="">None</option>
+                    @foreach ($medPacks as $pack)
+                      <option value="{{ $pack->pack_id }}" {{ $pack->pack_id === $med->pack_id ? 'selected' : '' }}>{{ $pack->pack_id }} </option>
+                    @endforeach
+                  </select>
+              </div>
+
+
+              
 
             </div>
           </div>
