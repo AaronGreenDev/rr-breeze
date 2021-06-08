@@ -248,12 +248,22 @@
                                                                 {{ $med->quantity }}
                                                             </div>
                                                         </td>
-                                                        <td class="px-6 py-4 whitespace-nowrap">             
-                                                            <div class="text-sm text-gray-500">
-                                                                {{ $med->status }}
-                                                            </div>
-                                                        </td>
-                                                    </td>
+                                                        @if($med->check_status($med) === 'Expired')
+                                                                    
+                                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
+                                                                            {{ $med->check_status($med) }}
+                                                                        </span>
+                                                                    </td>
+                                                                
+                                                            @else 
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-500 text-white">
+                                                                        {{ $med->check_status($med) }}
+                                                                </span>
+                                                            </td>
+                                                            @endif  
+                                                    </tr>
                                                     
                                                 @endforeach
                                             @endif

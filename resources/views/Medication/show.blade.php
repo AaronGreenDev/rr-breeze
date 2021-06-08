@@ -86,12 +86,21 @@
                                         </div>         
                                     </td>
                                     
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-green-800">
-                                                {{ $med->status }}
-                                    </span>
-                                </td>
-
+                                    @if($med->check_status($med) === 'Expired')
+                                                                    
+                                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
+                                                                            {{ $med->check_status($med) }}
+                                                                        </span>
+                                                                    </td>
+                                                                
+                                                            @else 
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-500 text-white">
+                                                                        {{ $med->check_status($med) }}
+                                                                </span>
+                                                            </td>
+                                                            @endif  
                                     <td>
                                         <form action="{{ route('meds.destroy', $med->medicine_id) }}" method="POST">
                                            <div>
